@@ -1,0 +1,686 @@
+/* ============================================
+   Canwest Art Services — Global Stylesheet
+   Site design by SharplineDigital.com
+   ============================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #f7f4ef;
+  color: #2a2820;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---- NAV ---- */
+.nav {
+  background: #1a1a18;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  color: #e8dfc8;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  font-family: Georgia, serif;
+}
+
+.nav-logo span { color: #c4a96b; }
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #b8ae9c;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: #c4a96b; }
+
+.nav-links .has-sub { position: relative; }
+.nav-links .has-sub:hover .sub-menu { display: block; }
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #242420;
+  min-width: 190px;
+  border-top: 2px solid #c4a96b;
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 200;
+}
+
+.sub-menu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 11px;
+  color: #b8ae9c;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.sub-menu li a:hover {
+  color: #c4a96b;
+  background: #2e2e2a;
+}
+
+/* ---- HERO ---- */
+.hero {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #2a2820;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('img/hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(20,18,14,0.35) 0%, rgba(20,18,14,0.65) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 640px;
+}
+
+.hero-eyebrow {
+  color: #c4a96b;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  color: #f0e8d4;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #c0b8a8;
+  font-size: 16px;
+  margin: 0 auto 2rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- BUTTONS ---- */
+.btn-primary {
+  background: #c4a96b;
+  color: #1a1a18;
+  padding: 0.65rem 1.7rem;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: #d4b97b; }
+
+.btn-outline {
+  background: transparent;
+  color: #e8dfc8;
+  padding: 0.65rem 1.7rem;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #c4a96b;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  display: inline-block;
+}
+
+.btn-outline:hover { background: rgba(196,169,107,0.1); }
+
+.btn-sm {
+  background: transparent;
+  border: 1px solid #c4a96b;
+  color: #c4a96b;
+  padding: 0.45rem 1.2rem;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  display: inline-block;
+}
+
+.btn-sm:hover { background: rgba(196,169,107,0.1); }
+
+/* ---- PAGE LAYOUT ---- */
+.section {
+  padding: 3rem 2.5rem;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.section-label {
+  color: #c4a96b;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  margin-bottom: 0.4rem;
+}
+
+.section h2 {
+  font-size: 26px;
+  font-weight: 400;
+  color: #2a2820;
+  margin-bottom: 0.75rem;
+}
+
+.section > p,
+.section .intro {
+  color: #5a5248;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #d8d0c0;
+  margin: 2.5rem 0;
+}
+
+/* ---- CARDS ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border: 0.5px solid #d8d0c0;
+  padding: 1.5rem;
+}
+
+.card-icon {
+  font-size: 28px;
+  color: #c4a96b;
+  margin-bottom: 0.85rem;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2a2820;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 14px;
+  color: #5a5248;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* ---- PRODUCT GRID ---- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.product-card {
+  background: #fff;
+  border: 0.5px solid #d8d0c0;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 190px;
+  background: #e8e0d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-img .placeholder {
+  color: #b8aa98;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+}
+
+.product-info { padding: 0.9rem 1rem; }
+
+.product-info h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #2a2820;
+  margin-bottom: 0.2rem;
+}
+
+.product-info .meta {
+  font-size: 12px;
+  color: #7a7268;
+  font-family: Arial, sans-serif;
+}
+
+.product-price {
+  font-size: 14px;
+  color: #c4a96b;
+  font-family: Arial, sans-serif;
+  margin-top: 0.5rem;
+}
+
+/* ---- CRANFIELD ---- */
+.cranfield-banner {
+  background: #2a2820;
+  padding: 2rem 2.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cranfield-logo-box {
+  width: 120px;
+  min-width: 120px;
+  height: 80px;
+  background: #3a3828;
+  border: 1px solid #4a4838;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cranfield-logo-box span {
+  color: #5a5448;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 0 8px;
+}
+
+.cranfield-badge {
+  background: #c4a96b;
+  color: #1a1a18;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.8rem;
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+.cranfield-banner h2 {
+  color: #e8dfc8;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+.cranfield-banner p {
+  color: #9a9080;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-box {
+  background: #f0ebe0;
+  border: 1px solid #d8d0c0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #5a5248;
+}
+
+.info-box strong { color: #2a2820; }
+
+.wholesale-cta {
+  background: #f0ebe0;
+  border: 1px solid #d8d0c0;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wholesale-cta p {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #5a5248;
+  margin: 0.25rem 0 0;
+}
+
+/* ---- SERVICES ---- */
+.services-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.service-detail-card {
+  background: #fff;
+  border: 0.5px solid #d8d0c0;
+  padding: 1.75rem;
+}
+
+.service-detail-card .icon {
+  font-size: 30px;
+  color: #c4a96b;
+  margin-bottom: 1rem;
+}
+
+.service-detail-card h3 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #2a2820;
+  margin-bottom: 0.6rem;
+}
+
+.service-detail-card .desc {
+  font-size: 14px;
+  color: #5a5248;
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.service-detail-card ul {
+  font-size: 14px;
+  color: #5a5248;
+  font-family: Arial, sans-serif;
+  padding-left: 1.2rem;
+  margin-bottom: 1.25rem;
+  line-height: 2;
+}
+
+/* ---- SHOP ---- */
+.shop-notice {
+  background: #f0ebe0;
+  border: 1px solid #d8d0c0;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #5a5248;
+}
+
+.shop-notice strong { color: #2a2820; }
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.1rem;
+}
+
+.shop-item {
+  background: #fff;
+  border: 0.5px solid #d8d0c0;
+  overflow: hidden;
+}
+
+.shop-item-img {
+  height: 150px;
+  background: #e8e0d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-item-img span {
+  color: #b8aa98;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+}
+
+.shop-item-info { padding: 0.75rem; }
+
+.shop-item-info h4 {
+  font-size: 13px;
+  font-weight: 400;
+  color: #2a2820;
+  margin-bottom: 0.2rem;
+  font-family: Arial, sans-serif;
+}
+
+.shop-item-info .price {
+  color: #c4a96b;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+}
+
+.add-btn {
+  width: 100%;
+  background: #2a2820;
+  color: #e8dfc8;
+  border: none;
+  padding: 0.5rem;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-family: Arial, sans-serif;
+}
+
+.add-btn:hover { background: #3a3828; }
+
+/* ---- CONTACT ---- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.contact-info h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2a2820;
+  margin-bottom: 1.1rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #5a5248;
+}
+
+.contact-detail .icon {
+  color: #c4a96b;
+  font-size: 18px;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7a7268;
+  font-family: Arial, sans-serif;
+  margin-bottom: 0.35rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #d8d0c0;
+  background: #fff;
+  font-size: 14px;
+  color: #2a2820;
+  outline: none;
+  font-family: Arial, sans-serif;
+  border-radius: 0;
+  appearance: none;
+}
+
+.form-group textarea { height: 100px; resize: vertical; }
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: #c4a96b; }
+
+.booking-card {
+  background: #2a2820;
+  padding: 1.75rem;
+}
+
+.booking-card h3 {
+  color: #e8dfc8;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+.booking-card .sub {
+  color: #9a9080;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1.25rem;
+}
+
+.booking-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.booking-fields .form-group { margin: 0; }
+
+.booking-fields .form-group label { color: #8a8070; }
+
+.booking-fields .form-group input,
+.booking-fields .form-group select {
+  background: #3a3828;
+  border-color: #4a4838;
+  color: #e8dfc8;
+}
+
+.wholesale-note {
+  background: #f0ebe0;
+  border: 1px solid #d8d0c0;
+  padding: 1.1rem 1.25rem;
+  margin-top: 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #5a5248;
+}
+
+.wholesale-note strong { color: #2a2820; }
+
+/* ---- FOOTER ---- */
+.footer {
+  background: #1a1a18;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer p {
+  color: #5a5248;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  font-family: Arial, sans-serif;
+}
+
+.footer a { color: #7a7060; }
+.footer a:hover { color: #c4a96b; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .nav { padding: 0 1rem; }
+  .nav-links { gap: 0.9rem; }
+  .nav-links a { font-size: 11px; }
+  .section { padding: 2rem 1.25rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .booking-fields { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 28px; }
+  .cranfield-banner { flex-direction: column; }
+}
