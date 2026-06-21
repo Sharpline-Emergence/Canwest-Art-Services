@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Canwest Art Services</title>
+  <meta name="description" content="Contact Canwest Art Services in Chilliwack, BC. Book an art appraisal or restoration, inquire about Cranfield Oils wholesale, or ask about our original paintings and art cards.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Canwest <span>Art Services</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="has-sub">
+        <a href="products.html">Products ▾</a>
+        <ul class="sub-menu">
+          <li><a href="products.html#paintings">Paintings</a></li>
+          <li><a href="products.html#artcards">Art Cards</a></li>
+          <li><a href="products.html#canvases">Canvases</a></li>
+        </ul>
+      </li>
+      <li><a href="cranfield.html">Cranfield Oils</a></li>
+      <li class="has-sub">
+        <a href="services.html">Services ▾</a>
+        <ul class="sub-menu">
+          <li><a href="services.html#appraisals">Art Appraisals</a></li>
+          <li><a href="services.html#restorations">Art Restorations</a></li>
+        </ul>
+      </li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="section">
+    <div class="section-label">Get in touch</div>
+    <h2>Contact Canwest Art Services</h2>
+
+    <div class="contact-grid">
+
+      <!-- LEFT: General contact info + enquiry form -->
+      <div class="contact-info">
+        <h3>General enquiries</h3>
+        <div class="contact-detail">
+          <span class="icon"><i class="ti ti-phone" aria-hidden="true"></i></span>
+          <div>604-793-5026</div>
+        </div>
+        <div class="contact-detail">
+          <span class="icon"><i class="ti ti-mail" aria-hidden="true"></i></span>
+          <div><a href="mailto:canwestart@shaw.ca">canwestart@shaw.ca</a></div>
+        </div>
+        <div class="contact-detail">
+          <span class="icon"><i class="ti ti-map-pin" aria-hidden="true"></i></span>
+          <div>Chilliwack, BC<br>Free pickup &amp; delivery &mdash; Vancouver to Hope</div>
+        </div>
+
+        <!-- ============================================================
+             GENERAL CONTACT FORM
+             Replace action URL with your Formspree endpoint:
+             action="https://formspree.io/f/YOUR_FORM_ID"
+             ============================================================ -->
+        <form
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          style="margin-top:1.75rem;"
+        >
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="604-xxx-xxxx">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send message</button>
+        </form>
+      </div>
+
+      <!-- RIGHT: Booking form + wholesale note -->
+      <div>
+        <!-- ============================================================
+             APPRAISAL / RESTORATION BOOKING FORM
+             Replace action URL with your second Formspree endpoint:
+             action="https://formspree.io/f/YOUR_BOOKING_FORM_ID"
+             ============================================================ -->
+        <div class="booking-card">
+          <h3>Book an appraisal or restoration</h3>
+          <p class="sub">Tell us about your piece and we&rsquo;ll arrange a no-fee initial consultation.</p>
+          <form
+            action="https://formspree.io/f/YOUR_BOOKING_FORM_ID"
+            method="POST"
+          >
+            <div class="booking-fields">
+              <div class="form-group">
+                <label for="b-name">Your name</label>
+                <input type="text" id="b-name" name="name" placeholder="Jane Smith" required>
+              </div>
+              <div class="form-group">
+                <label for="b-phone">Phone</label>
+                <input type="tel" id="b-phone" name="phone" placeholder="604-xxx-xxxx" required>
+              </div>
+              <div class="form-group" style="grid-column: span 2;">
+                <label for="b-email">Email address</label>
+                <input type="email" id="b-email" name="email" placeholder="jane@example.com" required>
+              </div>
+              <div class="form-group" style="grid-column: span 2;">
+                <label for="b-service">Service needed</label>
+                <select id="b-service" name="service">
+                  <option value="appraisal">Art appraisal</option>
+                  <option value="restoration">Art restoration</option>
+                  <option value="both">Both / unsure</option>
+                </select>
+              </div>
+              <div class="form-group" style="grid-column: span 2;">
+                <label for="b-piece">Describe your piece</label>
+                <input type="text" id="b-piece" name="piece_description" placeholder="e.g. Oil on canvas, circa 1960, unsigned">
+              </div>
+            </div>
+            <button type="submit" class="btn-primary" style="margin-top:1rem; width:100%;">Request consultation</button>
+          </form>
+        </div>
+
+        <div class="wholesale-note">
+          <strong>Wholesale Cranfield enquiries</strong> &mdash; use the general contact form and mention you&rsquo;re interested in a wholesale account. We&rsquo;ll follow up with pricing and minimum order details.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Canwest Art Services &middot; Chilliwack, BC &middot; All rights reserved &middot; <a href="#">Privacy</a> &nbsp;|&nbsp; Site design by <a href="https://sharplinedigital.com" target="_blank" rel="noopener">SharplineDigital.com</a></p>
+  </footer>
+
+</body>
+</html>
