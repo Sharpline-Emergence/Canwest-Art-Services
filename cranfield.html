@@ -3,10 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cranfield Artists' Oils — Wholesale Distributor | Canwest Art Services</title>
-  <meta name="description" content="Canwest Art Services is an authorized wholesale distributor for Cranfield Colours Artists' Oils and Studio Oils. Retail and wholesale available across BC.">
+  <title>Cranfield Artists' Oils &amp; Studio Oils — Wholesale Distributor | Canwest Art Services</title>
+  <meta name="description" content="Canwest Art Services is an authorized wholesale distributor for Cranfield Colours Artists' Oils and Studio Oils. Full colour range available retail and wholesale across BC.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    /* ---- CRANFIELD PAGE SPECIFIC ---- */
+    .cf-sub-nav {
+      background: #2a2820;
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #3a3828;
+      padding: 0 2.5rem;
+    }
+    .cf-sub-nav a {
+      display: inline-block;
+      padding: 0.85rem 1.5rem;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #7a7268;
+      font-family: Arial, sans-serif;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s;
+    }
+    .cf-sub-nav a:hover { color: #c4a96b; }
+    .cf-sub-nav a.active { color: #e8dfc8; border-bottom-color: #c4a96b; }
+
+    .pdf-download-bar {
+      background: #f0ebe0;
+      border: 1px solid #d8d0c0;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .pdf-download-bar p {
+      font-size: 13px;
+      color: #5a5248;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    .pdf-download-bar strong { color: #2a2820; }
+
+    /* COLOUR GRID */
+    .colour-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .colour-card {
+      background: #fff;
+      border: 0.5px solid #d8d0c0;
+      overflow: hidden;
+    }
+    .colour-swatch {
+      width: 100%;
+      height: 80px;
+    }
+    .colour-info {
+      padding: 0.6rem 0.75rem;
+    }
+    .colour-info h4 {
+      font-size: 13px;
+      font-weight: 400;
+      color: #2a2820;
+      margin-bottom: 0.2rem;
+      font-family: Georgia, serif;
+      line-height: 1.3;
+    }
+    .colour-meta {
+      font-size: 11px;
+      color: #9a9080;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+    .series-badge {
+      display: inline-block;
+      background: #f0ebe0;
+      color: #7a6a50;
+      font-size: 10px;
+      padding: 0.1rem 0.4rem;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+
+    /* PAGE SECTIONS */
+    .cf-section { display: none; }
+    .cf-section.active { display: block; }
+
+    .range-intro {
+      background: #2a2820;
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .range-intro-text h2 {
+      color: #e8dfc8;
+      font-size: 22px;
+      font-weight: 400;
+      font-family: Georgia, serif;
+      margin-bottom: 0.4rem;
+    }
+    .range-intro-text p {
+      color: #9a9080;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -35,42 +148,253 @@
     </ul>
   </nav>
 
+  <!-- CRANFIELD BANNER -->
   <div class="cranfield-banner">
     <div class="cranfield-logo-box"><span>Cranfield Colours logo</span></div>
     <div>
       <div class="cranfield-badge">Authorized wholesale distributor</div>
-      <h2>Cranfield Colours &mdash; Artists&rsquo; Oils</h2>
-      <p>Professional-grade oils trusted by working artists. Retail tubes available in our online shop. Wholesale accounts welcome &mdash; serving studios, schools, and retailers across BC.</p>
+      <h2>Cranfield Colours &mdash; Artists&rsquo; &amp; Studio Oils</h2>
+      <p>Professional-grade oils trusted by working artists since 1881. Retail tubes available in our online shop. Wholesale accounts welcome &mdash; serving studios, schools, and retailers across BC.</p>
     </div>
   </div>
 
-  <div class="section">
-    <div class="section-label">About Cranfield Colours</div>
-    <h2>A legacy of professional-grade colour</h2>
-    <p class="intro">Cranfield Colours has been producing artists&rsquo; materials in Britain since 1881. Their Artists&rsquo; Oils are formulated with the highest-grade pigments and cold-pressed linseed oil, delivering exceptional permanence, consistency, and handling. As an authorized BC distributor, we carry both Artists&rsquo; Oils and Studio Oils lines.</p>
+  <!-- SUB NAV -->
+  <div class="cf-sub-nav">
+    <a href="#" class="active" id="tab-artists" onclick="showRange('artists'); return false;">Artists&rsquo; Oil Colours</a>
+    <a href="#" id="tab-studio" onclick="showRange('studio'); return false;">Studio Oil Colours</a>
+  </div>
 
-    <div class="info-box">
-      <strong>Product lineup coming soon.</strong> We are finalizing our full Cranfield inventory listing. Individual tubes and sets will be available to purchase directly through our online shop. Contact us to ask about specific colours or to discuss wholesale account setup.
+  <!-- ARTISTS' OILS SECTION -->
+  <div class="cf-section active" id="range-artists">
+    <div class="range-intro">
+      <div class="range-intro-text">
+        <h2>Artists&rsquo; Oil Colours</h2>
+        <p>Made by professionals for professionals. Formulated with the highest-grade pigments and cold-pressed linseed oil — exceptional permanence, buttery consistency, and true colour from tube to canvas. 44 colours across 5 series.</p>
+      </div>
     </div>
 
-    <hr class="divider">
-    <div class="section-label">Retail purchases</div>
-    <h2>Buy individual tubes online</h2>
-    <p class="intro">Once our Ecwid shop is fully stocked, individual tubes of Cranfield Artists&rsquo; Oils and Studio Oils will be available to purchase directly on our Shop page with secure checkout and Canada-wide shipping.</p>
-    <a href="shop.html" class="btn-primary">Visit the shop</a>
-
-    <div class="wholesale-cta">
-      <div>
-        <strong>Wholesale inquiries welcome</strong>
-        <p>Art studios, schools, and retailers &mdash; contact us to discuss wholesale pricing, minimum orders, and account setup across BC.</p>
+    <div class="section">
+      <div class="pdf-download-bar">
+        <p><strong>Full colour chart</strong> &mdash; download the official Cranfield Artists&rsquo; Oil Colours reference sheet</p>
+        <a href="img/Cranfield_A4_Artists_Oils_Colours.pdf" class="btn-sm" download><i class="ti ti-download" aria-hidden="true"></i> Download PDF</a>
       </div>
-      <a href="contact.html" class="btn-primary">Inquire about wholesale</a>
+
+      <div class="section-label">Whites</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#f5f2ec;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Titanium White (Linseed)</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f5f2ec;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Titanium White (Safflower)</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f0ede6;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Zinc White</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#ede6d4;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Unbleached Titanium White</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Yellows</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#f5e020;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Yellow Lemon Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f2c200;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Yellow Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#e8a800;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Yellow Deep Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f0d060;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Yellow Lake</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#d4a820;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Indian Yellow Hue</h4><div class="colour-meta">Transparent &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f0e060;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Bright Yellow Lake</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Oranges &amp; Reds</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#e86010;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Orange Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#d83020;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Napthol Vermillion</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#d84030;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Light Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#c02818;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#901818;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Deep Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#a01830;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Alizarin Crimson</h4><div class="colour-meta">Transparent &middot; ASTM II</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Pinks &amp; Violets</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#e880a0;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Brilliant Pink</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#c02870;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Quinacridone Magenta</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#785090;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Manganese Violet</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#604880;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Ultramarine Violet</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#4a2878;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Violet Dioxazine</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#1a1840;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Indigo</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Blues</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#1840a0;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>French Ultramarine Blue Red Shade</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#1060c0;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Phthalo Blue Green Shade</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#1050a8;"></div><div class="colour-info"><span class="series-badge">Series 5</span><h4>Cobalt Blue Genuine</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#5090d0;"></div><div class="colour-info"><span class="series-badge">Series 5</span><h4>Cerulean Blue Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#4080c8;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>King&rsquo;s Blue Light</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#1840a0;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>King&rsquo;s Blue Deep</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#0a2060;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Prussian Blue</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Greens</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#007858;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Viridian Green</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#008060;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Emerald Green</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#006840;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Phthalo Green</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#3a6838;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Chromium Oxide Green</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#486830;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Sap Green</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#2898a8;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Phthalo Turquoise</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Earth tones</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#988030;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow Ochre</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#285830;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Terre Verte</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#b06820;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Sienna</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#901810;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Sienna</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#604018;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#401808;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Blacks &amp; Greys</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#303040;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Payne&rsquo;s Grey</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#181810;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Ivory Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#101010;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Lamp Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+      </div>
+
+      <div class="wholesale-cta" style="margin-top:2.5rem;">
+        <div>
+          <strong>Wholesale inquiries welcome</strong>
+          <p>Art studios, schools, and retailers &mdash; contact us to discuss wholesale pricing, minimum orders, and account setup across BC.</p>
+        </div>
+        <a href="contact.html" class="btn-primary">Inquire about wholesale</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDIO OILS SECTION -->
+  <div class="cf-section" id="range-studio">
+    <div class="range-intro">
+      <div class="range-intro-text">
+        <h2>Studio Oil Colours</h2>
+        <p>Paints made from the finest pigments for durability and performance. The Studio Oils range offers excellent quality at an accessible price point &mdash; ideal for students, emerging artists, and high-volume studio work. 47 colours, all Series 1&ndash;4.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="pdf-download-bar">
+        <p><strong>Full colour chart</strong> &mdash; download the official Cranfield Studio Oil Colours reference sheet</p>
+        <a href="img/Cranfield_A4_Studio_Oils_Colours.pdf" class="btn-sm" download><i class="ti ti-download" aria-hidden="true"></i> Download PDF</a>
+      </div>
+
+      <div class="section-label">Whites</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#f5f2ec;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Titanium White</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f5f2ec;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Quick Drying Titanium White</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f0ede6;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Zinc White</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f0ede6;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Mixing White</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Yellows</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#f0e030;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Lemon Yellow</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f5e020;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Cadmium Yellow Pale Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f0d010;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow</h4><div class="colour-meta">Semi Opaque &middot; ASTM II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#f2c200;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Cadmium Yellow Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#e8a000;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow Deep</h4><div class="colour-meta">Semi Opaque &middot; ASTM II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#e8c840;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Primrose Yellow</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#e8a800;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Cadmium Yellow Deep Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#d4a820;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Indian Yellow Hue</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#988030;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow Ochre</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Oranges &amp; Reds</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#e86010;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Orange</h4><div class="colour-meta">Semi Opaque &middot; ASTM II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#e04818;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Scarlet</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#c83020;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Red</h4><div class="colour-meta">Semi Opaque &middot; ASTM II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#c02818;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#801010;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Red Deep</h4><div class="colour-meta">Semi Opaque &middot; ASTM II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#901830;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Crimson</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#a01830;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Alizarin Crimson</h4><div class="colour-meta">Transparent &middot; ASTM II</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Pinks &amp; Violets</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#c84080;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Rose Madder Quinacridone</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#c02870;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Magenta</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#604890;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Violet</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Blues</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#1840a0;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>French Ultramarine Blue</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#4878c0;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Cobalt Blue Hue</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#0858c0;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Phthalo Blue Red Shade</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#0a2060;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Prussian Blue</h4><div class="colour-meta">Transparent &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#5090c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Cerulean Blue Hue</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Greens</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#006840;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Phthalo Green</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#007858;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Viridian Green Hue</h4><div class="colour-meta">Transparent &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#408840;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Emerald Green Hue</h4><div class="colour-meta">Opaque &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#589040;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Green Light</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#3a6838;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Opaque Oxide of Chromium</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#486830;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Sap Green</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#285830;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Terre Verte</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Earth tones</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#b06820;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Sienna</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#901810;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Sienna</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#604018;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#401808;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#301010;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Van Dyck Brown</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#500818;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Mars Violet</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#601010;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Indian Red</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#902018;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Light Red</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#d8a880;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Flesh Tint</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+      </div>
+
+      <hr class="divider">
+      <div class="section-label">Blacks &amp; Greys</div>
+      <div class="colour-grid">
+        <div class="colour-card"><div class="colour-swatch" style="background:#303040;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Payne&rsquo;s Grey</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#181810;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Ivory Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+        <div class="colour-card"><div class="colour-swatch" style="background:#0a0a0a;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Mars Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+      </div>
+
+      <div class="wholesale-cta" style="margin-top:2.5rem;">
+        <div>
+          <strong>Wholesale inquiries welcome</strong>
+          <p>Art studios, schools, and retailers &mdash; contact us to discuss wholesale pricing, minimum orders, and account setup across BC.</p>
+        </div>
+        <a href="contact.html" class="btn-primary">Inquire about wholesale</a>
+      </div>
     </div>
   </div>
 
   <footer class="footer">
     <p>&copy; 2026 Canwest Art Services &middot; Chilliwack, BC &middot; All rights reserved &middot; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; Site design by <a href="https://sharplinedigital.com" target="_blank" rel="noopener">SharplineDigital.com</a></p>
   </footer>
+
+  <script>
+    function showRange(range) {
+      document.querySelectorAll('.cf-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.cf-sub-nav a').forEach(a => a.classList.remove('active'));
+      document.getElementById('range-' + range).classList.add('active');
+      document.getElementById('tab-' + range).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
