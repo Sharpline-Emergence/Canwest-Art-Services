@@ -6,7 +6,8 @@
   <title>Contact Us | Canwest Art Services</title>
   <meta name="description" content="Contact Canwest Art Services in Chilliwack, BC. Book an art appraisal or restoration, inquire about Cranfield Oils wholesale, or ask about our original paintings and art cards.">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
   <style>
     input[type="checkbox"] {
       width: 16px !important;
@@ -24,6 +25,10 @@
       pointer-events: auto !important;
     }
   </style>
+  <!-- Performance optimisations -->
+  <link rel="preload" href="img/hero.webp" as="image" type="image/webp">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 </head>
 <body>
 
