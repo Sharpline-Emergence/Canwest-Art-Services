@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paintings — Watercolours & Oils | Canwest Art Services</title>
+  <meta name="description" content="Original oil paintings by Errol Brimacombe. Available for purchase through Canwest Art Services, Chilliwack, BC.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <style>
+    .paintings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+    .painting-card {
+      background: #fff;
+      border: 0.5px solid #d8d0c0;
+      overflow: hidden;
+    }
+    .painting-img {
+      width: 100%;
+      height: 200px;
+      background: #e8e0d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .painting-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .painting-img .placeholder {
+      color: #b8aa98;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 1rem;
+    }
+    .sold-badge {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      background: #2a2820;
+      color: #e8dfc8;
+      font-size: 10px;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+    }
+    .painting-info {
+      padding: 0.85rem 1rem;
+    }
+    .painting-info h3 {
+      font-size: 14px;
+      font-weight: 400;
+      color: #2a2820;
+      font-family: Georgia, serif;
+      margin: 0;
+      line-height: 1.4;
+    }
+    .painting-info .medium {
+      font-size: 12px;
+      color: #9a9080;
+      font-family: Arial, sans-serif;
+      margin-top: 0.25rem;
+    }
+    .painting-info .price {
+      font-size: 13px;
+      color: #c4a96b;
+      font-family: Arial, sans-serif;
+      margin-top: 0.4rem;
+    }
+    .painting-info .sold-text {
+      font-size: 12px;
+      color: #9a9080;
+      font-family: Arial, sans-serif;
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+    .medium-heading {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2a2820;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #c4a96b;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Canwest <span>Art Services</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="has-sub">
+        <a href="products.html" class="active">Products ▾</a>
+        <ul class="sub-menu">
+          <li><a href="paintings.html">Paintings</a></li>
+          <li><a href="products.html#artcards">Art Cards</a></li>
+          <li><a href="products.html#canvases">Canvases</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <a href="artists-oils.html">Cranfield Oils ▾</a>
+        <ul class="sub-menu">
+          <li><a href="artists-oils.html">Artists' Oil Colours</a></li>
+          <li><a href="studio-oils.html">Studio Oil Colours</a></li>
+        </ul>
+      </li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="section">
+    <div class="section-label">Original works</div>
+    <h2>Paintings by Errol Brimacombe</h2>
+    <p class="intro">Original oil paintings available for purchase. Contact us to inquire about pricing, sizing, and availability. Sold works are noted below.</p>
+
+    <!-- OILS -->
+    <div class="paintings-grid">
+
+      <div class="painting-card">
+        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
+        <div class="painting-info"><h3>Tangled Forest</h3><div class="medium">Oil on canvas</div><div class="sold-text">— Sold —</div></div>
+      </div>
+
+      <div class="painting-card">
+        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
+        <div class="painting-info"><h3>Morning Forest</h3><div class="medium">Oil on canvas</div><div class="sold-text">— Sold —</div></div>
+      </div>
+
+      <div class="painting-card">
+        <div class="painting-img"><img src="img/hero.webp" alt="Pristine Forest by Errol Brimacombe"></div>
+        <div class="painting-info"><h3>Pristine Forest</h3><div class="medium">Oil on canvas</div><div class="sold-text">— Sold —</div></div>
+      </div>
+
+      <div class="painting-card">
+        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
+        <div class="painting-info"><h3>Aurora Borealis 2</h3><div class="medium">Oil on canvas</div><div class="sold-text">— Sold —</div></div>
+      </div>
+
+      <div class="painting-card">
+        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
+        <div class="painting-info"><h3>Falls on the Cheakamus</h3><div class="medium">Oil on canvas</div></div>
+      </div>
+
+      <div class="painting-card">
+        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
+        <div class="painting-info"><h3>Faithful Companion</h3><div class="medium">Oil on canvas</div></div>
+      </div>
+
+      <div class="painting-card">
+        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
+        <div class="painting-info"><h3>Impenetrable Forest</h3><div class="medium">Oil on canvas</div></div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="contact.html" class="btn-outline" style="color:#2a2820; border-color:#2a2820;">Painting inquiries</a>
+      <a href="shop.html" class="btn-primary">Shop online &rarr;</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Canwest Art Services &middot; Chilliwack, BC &middot; All rights reserved &middot; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; Site design by <a href="https://sharplinedigital.com" target="_blank" rel="noopener">SharplineDigital.com</a></p>
+  </footer>
+
+</body>
+</html>
