@@ -87,20 +87,16 @@
 <h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Order 40 mL Tubes</h3>
 <p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Set quantities for the colours you&rsquo;d like below, then fill in your details. We&rsquo;ll follow up to confirm and arrange payment.</p>
 
-<!--
-  FORMSPREE SETUP NOTE (internal — remove once wired):
-  Replace YOUR_FORM_ID below with the Formspree endpoint for this form
-  once created, e.g. https://formspree.io/f/xxxxxxxx
--->
-<form id="cranfield-order-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<form id="cranfield-order-form" action="https://formspree.io/f/xgaeebla" method="POST">
 <input type="hidden" name="_subject" value="Cranfield Artists' Oils Order &mdash; canwestart.ca">
+<input type="hidden" name="_replyto" id="replyto-field">
 
 <div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
 <label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Full Name*
 <input type="text" name="Full Name" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
 </label>
 <label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Email*
-<input type="email" name="Email" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+<input type="email" name="Email" id="customer-email-field" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
 </label>
 <label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Phone
 <input type="tel" name="Phone" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
@@ -416,6 +412,7 @@ function updateOrderSummary() {
 }
 
 document.getElementById('cranfield-order-form').addEventListener('submit', function(e) {
+  document.getElementById('replyto-field').value = document.getElementById('customer-email-field').value;
   const fieldEl = document.getElementById('order-summary-field');
   if (!fieldEl.value) {
     e.preventDefault();
