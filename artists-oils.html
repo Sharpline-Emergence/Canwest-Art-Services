@@ -105,8 +105,8 @@
 <label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Phone
 <input type="tel" name="Phone" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
 </label>
-<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">PST Exemption Number
-<input type="text" name="PST Exemption Number" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">PST Number <span style="color:#9a9080; font-weight:normal;">(if applicable)</span>
+<input type="text" name="PST Number" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
 </label>
 </div>
 
@@ -114,12 +114,23 @@
 <input type="text" name="Address" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
 </label>
 
+<div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem;">
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">City*
+<input type="text" name="City" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Province / State*
+<input type="text" name="Province/State" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+</div>
+
 <label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Postal Code*
 <input type="text" name="Postal Code" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; max-width:200px;">
 </label>
 
+<p style="font-size:12px; color:#9a9080; font-family:Arial,sans-serif; margin-top:0.5rem;">If you provide a PST number, sales tax will not be added to your order confirmation.</p>
+
 <div style="margin-top:1.5rem;">
-<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-bottom:0.4rem;">Colours &amp; Quantities*</label>
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-bottom:0.4rem;">Colours &amp; Quantities* <span style="color:#9a9080; font-weight:normal;">&mdash; scroll down to view complete catalogue</span></label>
 <div style="border:1px solid #d8d0c0; max-height:340px; overflow-y:auto; background:#fff;">
 <div id="order-rows"></div>
 </div>
