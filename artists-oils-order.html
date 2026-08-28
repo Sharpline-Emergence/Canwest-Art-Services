@@ -82,69 +82,6 @@
 
 <div class="cart-bar" id="cart-bar">
 <p>Order summary: <strong id="cart-count">0 tubes selected</strong></p>
-<a href="#order-form">Continue to order form &darr;</a>
-</div>
-
-<hr class="divider" style="margin-top:2.5rem;">
-
-<div id="order-form" style="max-width:640px; margin-top:2rem;">
-<h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Your Order Details</h3>
-<p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Fill in your details below. Pressing Submit Order sends your selected tubes and quantities directly to Canwest Art Services at <strong>canwestart@shaw.ca</strong>.</p>
-
-<!--
-  FORMSPREE SETUP NOTE (internal ‚Äî remove before or after wiring):
-  Replace YOUR_FORM_ID below with the Sharpline Digital Formspree endpoint
-  for this form once created, e.g. https://formspree.io/f/xxxxxxxx
-  Formspree free tier posts submissions straight to canwestart@shaw.ca.
--->
-<form id="cranfield-order-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-<input type="hidden" name="_subject" value="Cranfield Artists' Oils Order &mdash; canwestart.ca">
-<input type="hidden" id="order-summary-field" name="Order Summary" value="">
-
-<div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Full Name*
-<input type="text" name="Full Name" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
-</label>
-<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Email*
-<input type="email" name="Email" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
-</label>
-<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Phone
-<input type="tel" name="Phone" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
-</label>
-<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">PST Exemption Number
-<input type="text" name="PST Exemption Number" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
-</label>
-</div>
-
-<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Address*
-<input type="text" name="Address" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
-</label>
-
-<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Postal Code*
-<input type="text" name="Postal Code" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; max-width:200px;">
-</label>
-
-<label style="display:flex; align-items:center; gap:0.5rem; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">
-<input type="checkbox" id="different-shipping" onclick="document.getElementById('shipping-fields').style.display = this.checked ? 'block' : 'none';">
-Ship to a different address
-</label>
-
-<div id="shipping-fields" style="display:none; margin-top:0.75rem; padding:0.9rem; background:#f7f4ec; border:1px solid #e0d8c8;">
-<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Shipping Address
-<input type="text" name="Shipping Address" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
-</label>
-<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:0.75rem;">Shipping Postal Code
-<input type="text" name="Shipping Postal Code" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; max-width:200px;">
-</label>
-</div>
-
-<div style="margin-top:1.5rem; padding:1rem; background:#f7f4ec; border:1px solid #e0d8c8;">
-<p style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin:0 0 0.5rem;"><strong>Your order:</strong></p>
-<div id="order-summary-display" style="font-family:Arial,sans-serif; font-size:13px; color:#2a2820;">No tubes selected yet &mdash; choose quantities above.</div>
-</div>
-
-<button type="submit" class="btn-primary" style="margin-top:1.5rem; border:none; cursor:pointer;">Submit Order</button>
-</form>
 </div>
 
 </div>
@@ -261,23 +198,7 @@ function refreshSummary() {
     }
   });
   document.getElementById('cart-count').textContent = totalTubes + ' tube' + (totalTubes === 1 ? '' : 's') + ' selected';
-  const summaryDisplay = document.getElementById('order-summary-display');
-  if (lines.length === 0) {
-    summaryDisplay.innerHTML = 'No tubes selected yet &mdash; choose quantities above.';
-  } else {
-    summaryDisplay.innerHTML = lines.map(l => `<div>${l}</div>`).join('') +
-      `<div style="margin-top:0.5rem; font-weight:700;">Estimated total: ${money(totalPrice)}</div>`;
-  }
-  document.getElementById('order-summary-field').value = lines.join(' | ') + (lines.length ? ` | Estimated total: ${money(totalPrice)}` : '');
 }
-
-document.getElementById('cranfield-order-form').addEventListener('submit', function(e) {
-  const totalTubes = Object.values(cart).reduce((a, b) => a + b, 0);
-  if (totalTubes === 0) {
-    e.preventDefault();
-    alert('Please select at least one tube before submitting your order.');
-  }
-});
 </script>
 
 </body>
