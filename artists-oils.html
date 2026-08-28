@@ -83,6 +83,49 @@
 <!-- Tube cards injected by script below -->
 </div>
 
+<div id="order-form-section" style="max-width:640px; margin-top:2.5rem;">
+<h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Order 40 mL Tubes</h3>
+<p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Let us know which colours and quantities you&rsquo;d like, along with your details. We&rsquo;ll follow up to confirm and arrange payment.</p>
+
+<!--
+  FORMSPREE SETUP NOTE (internal — remove once wired):
+  Replace YOUR_FORM_ID below with the Formspree endpoint for this form
+  once created, e.g. https://formspree.io/f/xxxxxxxx
+-->
+<form id="cranfield-order-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<input type="hidden" name="_subject" value="Cranfield Artists' Oils Order &mdash; canwestart.ca">
+
+<div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Full Name*
+<input type="text" name="Full Name" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Email*
+<input type="email" name="Email" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Phone
+<input type="tel" name="Phone" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">PST Exemption Number
+<input type="text" name="PST Exemption Number" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+</div>
+
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Address*
+<input type="text" name="Address" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Postal Code*
+<input type="text" name="Postal Code" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; max-width:200px;">
+</label>
+
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Colours &amp; Quantities*
+<textarea name="Colours and Quantities" required rows="5" placeholder="e.g. CAO1 Alizarin Crimson x2, CAO20 Ivory Black x1" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; font-family:Arial,sans-serif; font-size:13px;"></textarea>
+</label>
+
+<button type="submit" class="btn-primary" style="margin-top:1.5rem; border:none; cursor:pointer;">Submit Order</button>
+</form>
+</div>
+
 <button type="button" class="reveal-toggle" id="swatch-toggle" onclick="toggleSwatchChart()">
 <i class="ti ti-palette" aria-hidden="true"></i> View colours by series &#9662;
 </button>
