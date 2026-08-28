@@ -85,7 +85,7 @@
 
 <div id="order-form-section" style="max-width:640px; margin-top:2.5rem;">
 <h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Order 40 mL Tubes</h3>
-<p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Let us know which colours and quantities you&rsquo;d like, along with your details. We&rsquo;ll follow up to confirm and arrange payment.</p>
+<p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Set quantities for the colours you&rsquo;d like below, then fill in your details. We&rsquo;ll follow up to confirm and arrange payment.</p>
 
 <!--
   FORMSPREE SETUP NOTE (internal — remove once wired):
@@ -118,9 +118,15 @@
 <input type="text" name="Postal Code" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; max-width:200px;">
 </label>
 
-<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Colours &amp; Quantities*
-<textarea name="Colours and Quantities" required rows="5" placeholder="e.g. CAO1 Alizarin Crimson x2, CAO20 Ivory Black x1" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; font-family:Arial,sans-serif; font-size:13px;"></textarea>
-</label>
+<div style="margin-top:1.5rem;">
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-bottom:0.4rem;">Colours &amp; Quantities*</label>
+<div style="border:1px solid #d8d0c0; max-height:340px; overflow-y:auto; background:#fff;">
+<div id="order-rows"></div>
+</div>
+<div id="order-summary" style="margin-top:0.6rem; padding:0.65rem 0.9rem; background:#f7f4ec; border:1px solid #e0d8c8; font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">No colours selected yet.</div>
+<input type="hidden" id="order-summary-field" name="Colours and Quantities" required>
+<p style="font-size:12px; color:#9a9080; font-family:Arial,sans-serif; margin-top:0.5rem;">Prices shown are per 40 mL tube. Taxes and shipping will be calculated and confirmed on your order.</p>
+</div>
 
 <button type="submit" class="btn-primary" style="margin-top:1.5rem; border:none; cursor:pointer;">Submit Order</button>
 </form>
@@ -274,7 +280,6 @@
 <strong>Limited Studio Oils available</strong>
 <p>We have a limited selection of Cranfield Studio Oils. Contact us for further information.</p>
 </div>
-<a href="contact.html" class="btn-primary">Contact us for More Cranfield Information</a>
 </div>
 
 </div>
@@ -348,6 +353,63 @@ CRANFIELD_TUBES.forEach(t => {
       <div class="tube-price">${money(t.price)}</div>
     </div>`;
   grid.appendChild(card);
+});
+
+const orderRows = document.getElementById('order-rows');
+const orderQty = {};
+
+CRANFIELD_TUBES.forEach((t, i) => {
+  orderQty[t.cao] = 0;
+  const row = document.createElement('div');
+  row.style.cssText = 'display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0.55rem 0.9rem; font-family:Arial,sans-serif;' + (i < CRANFIELD_TUBES.length - 1 ? ' border-bottom:0.5px solid #e8e2d4;' : '');
+  row.innerHTML = `
+    <div style="min-width:0;">
+      <div style="font-size:13px; color:#2a2820;">${t.name}</div>
+      <div style="font-size:11px; color:#9a9080;">${t.cao} &middot; ${money(t.price)}</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+      <button type="button" class="qty-btn" data-cao="${t.cao}" data-dir="-1" style="width:26px; height:26px;">&minus;</button>
+      <span id="oq-${t.cao}" style="min-width:20px; text-align:center; font-size:13px;">0</span>
+      <button type="button" class="qty-btn" data-cao="${t.cao}" data-dir="1" style="width:26px; height:26px;">&plus;</button>
+    </div>`;
+  orderRows.appendChild(row);
+});
+
+orderRows.addEventListener('click', e => {
+  const btn = e.target.closest('button[data-cao]');
+  if (!btn) return;
+  const cao = btn.dataset.cao;
+  const dir = parseInt(btn.dataset.dir, 10);
+  orderQty[cao] = Math.max(0, orderQty[cao] + dir);
+  document.getElementById('oq-' + cao).textContent = orderQty[cao];
+  updateOrderSummary();
+});
+
+function updateOrderSummary() {
+  const chosen = CRANFIELD_TUBES.filter(t => orderQty[t.cao] > 0);
+  const summaryEl = document.getElementById('order-summary');
+  const fieldEl = document.getElementById('order-summary-field');
+  if (chosen.length === 0) {
+    summaryEl.textContent = 'No colours selected yet.';
+    fieldEl.value = '';
+    return;
+  }
+  let total = 0;
+  const lines = chosen.map(t => {
+    const lineTotal = t.price * orderQty[t.cao];
+    total += lineTotal;
+    return `${t.cao} ${t.name} x${orderQty[t.cao]} (${money(lineTotal)})`;
+  });
+  summaryEl.textContent = lines.join(', ') + ' \u2014 subtotal ' + money(total);
+  fieldEl.value = lines.join(', ') + ' | Subtotal: ' + money(total);
+}
+
+document.getElementById('cranfield-order-form').addEventListener('submit', function(e) {
+  const fieldEl = document.getElementById('order-summary-field');
+  if (!fieldEl.value) {
+    e.preventDefault();
+    alert('Please select at least one colour and quantity before submitting your order.');
+  }
 });
 
 function toggleSwatchChart() {
