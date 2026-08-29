@@ -123,7 +123,6 @@
 <input type="text" name="Postal Code" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; max-width:200px;">
 </label>
 
-<p style="font-size:12px; color:#9a9080; font-family:Arial,sans-serif; margin-top:0.5rem;">Orders over $150 (before tax) ship free within Canada. Orders over $150 to Whitehorse, Iqaluit, or Yellowknife ship for a flat $20. Orders within the BC Lower Mainland (Richmond or North Vancouver to Hope) ship or deliver free regardless of order size.</p>
 <p style="font-size:12px; color:#9a9080; font-family:Arial,sans-serif; margin-top:0.5rem;">If you provide a PST number, sales tax will not be added to your order confirmation.</p>
 
 <div style="margin-top:1.5rem;">
@@ -136,8 +135,22 @@
 <p style="font-size:12px; color:#9a9080; font-family:Arial,sans-serif; margin-top:0.5rem;">Prices shown are per 40 mL tube. Taxes and shipping will be calculated and confirmed on your order.</p>
 </div>
 
-<button type="submit" class="btn-primary" style="margin-top:1.5rem; border:none; cursor:pointer;">Submit Order</button>
+<button type="button" class="reveal-toggle" style="margin-top:1rem; padding:0;" onclick="openShippingModal()">View shipping &amp; payment policy</button>
+<br>
+<button type="submit" class="btn-primary" style="margin-top:1rem; border:none; cursor:pointer;">Submit Order</button>
 </form>
+</div>
+
+<div id="shipping-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(42,40,32,0.55); z-index:100; align-items:center; justify-content:center; padding:1.5rem;">
+<div style="background:#fff; max-width:560px; width:100%; max-height:85vh; overflow-y:auto; padding:1.75rem; position:relative; border:1px solid #d8d0c0;">
+<button type="button" onclick="closeShippingModal()" aria-label="Close" style="position:absolute; top:0.9rem; right:0.9rem; background:none; border:none; font-size:20px; line-height:1; cursor:pointer; color:#9a9080;">&times;</button>
+<h3 style="font-family:Georgia,serif; color:#2a2820; margin:0 0 1rem;">Shipping &amp; Payment Policy</h3>
+<p style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248; line-height:1.6; margin:0 0 0.75rem;">Orders over $150 (before taxes) ship free to any Canadian province with a post office. Orders over $150 (before taxes) shipping to Whitehorse, Iqaluit, or Yellowknife ship for a flat $30 fee.</p>
+<p style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248; line-height:1.6; margin:0 0 0.75rem;">Within the BC Lower Mainland, orders of $50 or more, or 3 or more tubes (whichever is less), qualify for free delivery. There&rsquo;s no minimum order when Cranfield Artists&rsquo; Oils accompany an order for Apollon Gotrick canvases or cradled birch panels.</p>
+<p style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248; line-height:1.6; margin:0 0 0.75rem;">Prepayment by e-transfer or credit card is required before shipping. Once your order is processed, you&rsquo;ll receive an invoice to review before submitting payment &mdash; we&rsquo;ll never charge a credit card without your prior approval. You&rsquo;ll be notified when your order ships.</p>
+<p style="font-family:Arial,sans-serif; font-size:12px; color:#9a9080; line-height:1.5; margin:0 0 1rem;">Close this window, then press Submit Order again to send your order.</p>
+<button type="button" onclick="closeShippingModal()" class="btn-primary" style="margin-top:0.5rem; border:none; cursor:pointer;">Close</button>
+</div>
 </div>
 
 <button type="button" class="reveal-toggle" id="swatch-toggle" onclick="toggleSwatchChart()">
@@ -412,12 +425,32 @@ function updateOrderSummary() {
   fieldEl.value = lines.join(', ') + ' | Subtotal: ' + money(total);
 }
 
+let shippingPolicyViewed = false;
+
+function openShippingModal() {
+  document.getElementById('shipping-modal-overlay').style.display = 'flex';
+  shippingPolicyViewed = true;
+}
+
+function closeShippingModal() {
+  document.getElementById('shipping-modal-overlay').style.display = 'none';
+}
+
+document.getElementById('shipping-modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeShippingModal();
+});
+
 document.getElementById('cranfield-order-form').addEventListener('submit', function(e) {
   document.getElementById('replyto-field').value = document.getElementById('customer-email-field').value;
   const fieldEl = document.getElementById('order-summary-field');
   if (!fieldEl.value) {
     e.preventDefault();
     alert('Please select at least one colour and quantity before submitting your order.');
+    return;
+  }
+  if (!shippingPolicyViewed) {
+    e.preventDefault();
+    openShippingModal();
   }
 });
 
