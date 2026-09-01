@@ -422,10 +422,12 @@ function updateOrderSummary() {
   const lines = chosen.map(t => {
     const lineTotal = t.price * orderQty[t.cao];
     total += lineTotal;
-    return `${t.cao} ${t.name} x${orderQty[t.cao]} (${money(lineTotal)})`;
+    return `${t.cao} ${t.name} \u00d7${orderQty[t.cao]} \u2014 ${money(lineTotal)}`;
   });
-  summaryEl.textContent = lines.join(', ') + ' \u2014 subtotal ' + money(total);
-  fieldEl.value = lines.join(', ') + ' | Subtotal: ' + money(total);
+  const subtotalLine = `Subtotal: ${money(total)} (excludes tax & shipping)`;
+  summaryEl.innerHTML = lines.map(l => `<div>${l}</div>`).join('') +
+    `<div style="margin-top:0.5rem; font-weight:700;">${subtotalLine}</div>`;
+  fieldEl.value = lines.join('\n') + '\n\n' + subtotalLine;
 }
 
 let shippingPolicyViewed = false;
