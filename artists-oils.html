@@ -88,9 +88,11 @@
 <h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Order 40 mL Tubes</h3>
 <p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Set quantities for the colours you&rsquo;d like below, then fill in your details. We&rsquo;ll follow up to confirm and arrange payment.</p>
 
-<form id="cranfield-order-form" action="https://formspree.io/f/xgaeebla" method="POST">
-<input type="hidden" name="_subject" value="Cranfield Artists' Oils Order &mdash; canwestart.ca">
-<input type="hidden" name="_replyto" id="replyto-field">
+<form id="cranfield-order-form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="a0dc08e3-731c-4219-b6e4-4530e5ca5552">
+<input type="hidden" name="subject" value="Cranfield Artists' Oils Order &mdash; canwestart.ca">
+<input type="checkbox" name="botcheck" style="display:none;">
+<input type="hidden" name="email" id="replyto-field">
 
 <div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
 <label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Full Name*
