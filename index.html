@@ -1,3 +1,6 @@
+---
+active: home
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,25 +14,7 @@
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">Canwest <span>Art Services</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li class="has-sub">
-        <a href="products.html">Products ▾</a>
-        <ul class="sub-menu">
-          <li><a href="products.html#paintings">Paintings</a></li>
-          <li><a href="products.html#artcards">Art Cards</a></li>
-          <li><a href="products.html#canvases">Canvases</a></li>
-        </ul>
-      </li>
-      <li><a href="artists-oils.html">Cranfield Oils</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  {% include nav.html %}
 
   <div class="hero">
     <div class="hero-bg"></div>

@@ -1,0 +1,18 @@
+# Canwest Art Services — site navigation
+# To add a new product category: add one item under "products" (or "oilpaints"
+# for a new oil-paint brand) with a label and a url. It will appear on every
+# page automatically, already alphabetized. No HTML editing needed.
+
+products:
+  - label: Art Cards
+    url: products.html#artcards
+  - label: Canvases
+    url: products.html#canvases
+  - label: Paintings
+    url: paintings.html
+  - label: Watercolour Paper
+    url: products.html#watercolourpaper
+
+oilpaints:
+  - label: Cranfield
+    url: artists-oils.html
