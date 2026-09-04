@@ -8,6 +8,8 @@ products:
     url: products.html#artcards
   - label: Canvases
     url: products.html#canvases
+  - label: Miscellaneous Art Supplies
+    url: products.html#misc
   - label: Paintings
     url: paintings.html
   - label: Watercolour Paper

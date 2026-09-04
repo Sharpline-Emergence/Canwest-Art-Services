@@ -1,5 +1,8 @@
 <nav class="nav">
   <a href="index.html" class="nav-logo">Canwest <span>Art Services</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="index.html"{% if page.active == "home" %} class="active"{% endif %}>Home</a></li>
     <li class="has-sub">
@@ -26,3 +29,46 @@
     <li><a href="contact.html"{% if page.active == "contact" %} class="active"{% endif %}>Contact</a></li>
   </ul>
 </nav>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', function () {
+    var isOpen = links.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // On mobile, tapping a "has-sub" link expands its submenu instead of
+  // navigating away (first tap), since hover doesn't exist on touch.
+  document.querySelectorAll('.has-sub > a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (window.matchMedia('(max-width: 768px)').matches) {
+        var parent = a.parentElement;
+        if (!parent.classList.contains('sub-open')) {
+          e.preventDefault();
+          document.querySelectorAll('.has-sub.sub-open').forEach(function (el) {
+            el.classList.remove('sub-open');
+          });
+          parent.classList.add('sub-open');
+        }
+      }
+    });
+  });
+
+  // Close the mobile menu after a real link is followed.
+  links.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (window.matchMedia('(max-width: 768px)').matches &&
+          !a.parentElement.classList.contains('has-sub')) {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      }
+    });
+  });
+})();
+</script>
