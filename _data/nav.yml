@@ -16,3 +16,5 @@ products:
 oilpaints:
   - label: Cranfield
     url: artists-oils.html
+  - label: Gamblin
+    url: gamblin-oils.html
