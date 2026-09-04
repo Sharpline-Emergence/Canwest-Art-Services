@@ -14,13 +14,52 @@ active: products
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <style>
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
     .bio {
       font-family: Arial, sans-serif;
       font-size: 14px;
       color: #5a5248;
       line-height: 1.7;
-      max-width: 700px;
-      margin-bottom: 1.5rem;
+      margin: 0;
+    }
+
+    .bio-portrait {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #e8e0d0;
+      border: 0.5px solid #d8d0c0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .bio-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bio-portrait .placeholder {
+      color: #b8aa98;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .bio-grid { grid-template-columns: 1fr; }
+      .bio-portrait { max-width: 260px; margin: 0 auto; }
     }
 
     .medium-heading {
@@ -247,7 +286,12 @@ active: products
     <div class="section-label">Original works</div>
     <h2>Paintings by Errol Brimacombe</h2>
 
-    <p class="bio">Errol Brimacombe is a Chilliwack, BC artist known for luminous watercolours and richly textured oils of the Western Canadian landscape. Raised in Manitoba, he settled in BC in 1969 and turned to painting professionally in the early 1980s, drawn to watercolour&rsquo;s demanding, light-filled quality. His work &mdash; described as &ldquo;realism with atmosphere&rdquo; &mdash; has earned him sustaining associate membership in the American Watercolor Society. In oils, that same eye for the region takes on bolder colour and depth, from forest interiors to autumn mountain scenes.</p>
+    <div class="bio-grid">
+      <p class="bio">Errol Brimacombe is a Chilliwack, BC artist known for luminous watercolours and richly textured oils of the Western Canadian landscape. Raised in Manitoba, he settled in BC in 1969 and turned to painting professionally in the early 1980s, drawn to watercolour&rsquo;s demanding, light-filled quality. His work &mdash; described as &ldquo;realism with atmosphere&rdquo; &mdash; has earned him sustaining associate membership in the American Watercolor Society. In oils, that same eye for the region takes on bolder colour and depth, from forest interiors to autumn mountain scenes.</p>
+      <div class="bio-portrait">
+        <img src="img/errol-portrait.jpg" alt="Errol Brimacombe">
+      </div>
+    </div>
 
     <p class="intro">Contact us to inquire about pricing, sizing, and availability.</p>
 
