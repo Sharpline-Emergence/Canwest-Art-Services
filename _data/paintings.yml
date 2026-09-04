@@ -1,0 +1,107 @@
+# Canwest Art Services — original paintings by Errol Brimacombe
+# To add, remove, or update a painting: edit the matching list below
+# (watercolours or oils). No HTML editing needed — the paintings page
+# builds itself from this file.
+#
+# Fields:
+#   title         - painting title (required)
+#   orientation   - landscape, portrait, or square (controls thumbnail shape)
+#   canvas_size   - e.g. "18 x 24 in" — leave blank if not yet confirmed
+#   framed_size   - e.g. "24 x 30 in" — leave blank if not yet confirmed
+#   price         - e.g. "$895" — leave blank if not yet confirmed
+#   sold          - true if the piece has sold (shows a "Sold" badge, no price)
+
+watercolours:
+  - title: Morning Roses
+    orientation: square
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: The Cheam Range
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Northern Sky
+    orientation: portrait
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Golden Ears Provincial Park
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Valley of the Ten Peaks
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Cormorant Conversation
+    orientation: square
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Pacific Shoreline
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+    sold: true
+  - title: Misty Morning
+    orientation: portrait
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Night Sky Near Whitehorse
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+
+oils:
+  - title: Falls on the Cheakamus
+    orientation: portrait
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Faithful Companion
+    orientation: square
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Impenetrable Forest
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Along the Fraser
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Untitled Work No. 8
+    orientation: portrait
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Untitled Work No. 9
+    orientation: square
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Untitled Work No. 10
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Untitled Work No. 11
+    orientation: portrait
+    canvas_size: ""
+    framed_size: ""
+    price: ""
+  - title: Untitled Work No. 12
+    orientation: landscape
+    canvas_size: ""
+    framed_size: ""
+    price: ""

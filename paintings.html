@@ -7,39 +7,72 @@ active: products
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paintings — Watercolours & Oils | Canwest Art Services</title>
-  <meta name="description" content="Original oil paintings by Errol Brimacombe. Available for purchase through Canwest Art Services, Chilliwack, BC.">
+  <meta name="description" content="Original watercolour and oil paintings by Errol Brimacombe. Available for purchase through Canwest Art Services, Chilliwack, BC.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <style>
+    .bio {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #5a5248;
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .medium-heading {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2a2820;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #c4a96b;
+      display: inline-block;
+    }
+
     .paintings-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 1.25rem;
     }
+
     .painting-card {
-      background: #fff;
-      border: 0.5px solid #d8d0c0;
-      overflow: hidden;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      font: inherit;
+      color: inherit;
     }
+
     .painting-img {
       width: 100%;
-      height: 200px;
       background: #e8e0d0;
+      border: 0.5px solid #d8d0c0;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       position: relative;
     }
+
+    .painting-img.orientation-landscape { aspect-ratio: 4 / 3; }
+    .painting-img.orientation-portrait  { aspect-ratio: 3 / 4; }
+    .painting-img.orientation-square    { aspect-ratio: 1 / 1; }
+
     .painting-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .painting-img .placeholder {
       color: #b8aa98;
       font-size: 11px;
@@ -49,40 +82,160 @@ active: products
       text-align: center;
       padding: 1rem;
     }
-    .painting-info {
-      padding: 0.85rem 1rem;
-    }
-    .painting-info h3 {
+
+    .painting-img .zoom-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: 0.5px solid #d8d0c0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 14px;
+      color: #5a5248;
+    }
+
+    .painting-img .sold-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #2a2820;
+      color: #e8dfc8;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      font-family: Arial, sans-serif;
+    }
+
+    .painting-title {
+      font-size: 13px;
+      color: #2a2820;
+      font-family: Georgia, serif;
+      margin-top: 0.6rem;
+      line-height: 1.4;
+    }
+
+    /* ---- MODAL ---- */
+    .painting-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,18,14,0.75);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .painting-modal-overlay.open { display: flex; }
+
+    .painting-modal {
+      background: #fff;
+      max-width: 460px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .painting-modal-img {
+      width: 100%;
+      max-height: 380px;
+      aspect-ratio: 4 / 3;
+      background: #e8e0d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .painting-modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .painting-modal-img .placeholder {
+      color: #b8aa98;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+    }
+
+    .painting-modal-body { padding: 1.25rem 1.5rem 1.5rem; }
+
+    .painting-modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .painting-modal-head h3 {
+      font-size: 18px;
       font-weight: 400;
       color: #2a2820;
       font-family: Georgia, serif;
       margin: 0;
-      line-height: 1.4;
     }
-    .painting-info .medium {
+
+    .painting-modal-close {
+      background: none;
+      border: 1px solid #d8d0c0;
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      flex-shrink: 0;
+      cursor: pointer;
+      font-size: 13px;
+      color: #5a5248;
+    }
+
+    .painting-modal-close:hover { border-color: #c4a96b; color: #c4a96b; }
+
+    .painting-modal-details {
+      width: 100%;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      border-collapse: collapse;
+    }
+
+    .painting-modal-details tr { border-top: 1px solid #ede8dc; }
+    .painting-modal-details tr:first-child { border-top: none; }
+
+    .painting-modal-details td {
+      padding: 0.55rem 0;
+      color: #5a5248;
+    }
+
+    .painting-modal-details td:last-child {
+      text-align: right;
+      color: #2a2820;
+    }
+
+    .painting-modal-details .price-row td:last-child {
+      color: #c4a96b;
+      font-weight: 700;
+    }
+
+    .painting-modal-note {
+      font-family: Arial, sans-serif;
       font-size: 12px;
       color: #9a9080;
-      font-family: Arial, sans-serif;
-      margin-top: 0.25rem;
+      margin-top: 0.75rem;
     }
-    .painting-info .price {
-      font-size: 13px;
-      color: #c4a96b;
-      font-family: Arial, sans-serif;
-      margin-top: 0.4rem;
+
+    .painting-modal-cta {
+      margin-top: 1.1rem;
     }
-    .medium-heading {
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #2a2820;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-      margin: 2rem 0 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #c4a96b;
-      display: inline-block;
+
+    @media (max-width: 600px) {
+      .paintings-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     }
   </style>
 </head>
@@ -93,51 +246,39 @@ active: products
   <div class="section">
     <div class="section-label">Original works</div>
     <h2>Paintings by Errol Brimacombe</h2>
-    <p class="intro">Original oil paintings available for purchase. Contact us to inquire about pricing, sizing, and availability.</p>
+
+    <p class="bio">Errol Brimacombe is a Chilliwack, BC artist known for luminous watercolours and richly textured oils of the Western Canadian landscape. Raised in Manitoba, he settled in BC in 1969 and turned to painting professionally in the early 1980s, drawn to watercolour&rsquo;s demanding, light-filled quality. His work &mdash; described as &ldquo;realism with atmosphere&rdquo; &mdash; has earned him sustaining associate membership in the American Watercolor Society. In oils, that same eye for the region takes on bolder colour and depth, from forest interiors to autumn mountain scenes.</p>
+
+    <p class="intro">Contact us to inquire about pricing, sizing, and availability.</p>
+
+    <!-- WATERCOLOURS -->
+    <div class="medium-heading">Watercolours</div>
+    <div class="paintings-grid">
+      {% for painting in site.data.paintings.watercolours %}
+      <button type="button" class="painting-card" onclick="openPaintingModal('watercolours', {{ forloop.index0 }})">
+        <div class="painting-img orientation-{{ painting.orientation | default: 'square' }}">
+          <span class="placeholder">Photo coming soon</span>
+          {% if painting.sold %}<span class="sold-badge">Sold</span>{% endif %}
+          <span class="zoom-badge"><i class="ti ti-zoom-in" aria-hidden="true"></i></span>
+        </div>
+        <div class="painting-title">{{ painting.title }}</div>
+      </button>
+      {% endfor %}
+    </div>
 
     <!-- OILS -->
+    <div class="medium-heading">Oil Paintings</div>
     <div class="paintings-grid">
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Falls on the Cheakamus</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Faithful Companion</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Impenetrable Forest</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Untitled Work No. 8</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Untitled Work No. 9</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Untitled Work No. 10</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Untitled Work No. 11</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
-      <div class="painting-card">
-        <div class="painting-img"><span class="placeholder">Photo coming soon</span></div>
-        <div class="painting-info"><h3>Untitled Work No. 12</h3><div class="medium">Oil on canvas</div></div>
-      </div>
-
+      {% for painting in site.data.paintings.oils %}
+      <button type="button" class="painting-card" onclick="openPaintingModal('oils', {{ forloop.index0 }})">
+        <div class="painting-img orientation-{{ painting.orientation | default: 'square' }}">
+          <span class="placeholder">Photo coming soon</span>
+          {% if painting.sold %}<span class="sold-badge">Sold</span>{% endif %}
+          <span class="zoom-badge"><i class="ti ti-zoom-in" aria-hidden="true"></i></span>
+        </div>
+        <div class="painting-title">{{ painting.title }}</div>
+      </button>
+      {% endfor %}
     </div>
 
     <div style="text-align:center; margin-top:2.5rem;">
@@ -145,9 +286,73 @@ active: products
     </div>
   </div>
 
+  <!-- MODAL -->
+  <div class="painting-modal-overlay" id="painting-modal-overlay" onclick="if(event.target===this) closePaintingModal()">
+    <div class="painting-modal">
+      <div class="painting-modal-img" id="painting-modal-img"><span class="placeholder">Photo coming soon</span></div>
+      <div class="painting-modal-body">
+        <div class="painting-modal-head">
+          <h3 id="painting-modal-title"></h3>
+          <button type="button" class="painting-modal-close" aria-label="Close" onclick="closePaintingModal()"><i class="ti ti-x" aria-hidden="true"></i></button>
+        </div>
+        <table class="painting-modal-details" id="painting-modal-details"></table>
+        <p class="painting-modal-note" id="painting-modal-note" style="display:none;">Size and pricing available on request — contact us for current details.</p>
+        <div class="painting-modal-cta">
+          <a href="contact.html" class="btn-sm">Inquire about this piece</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <p>&copy; 2026 Canwest Art Services &middot; Chilliwack, BC &middot; All rights reserved &middot; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; Site design by <a href="https://sharplinedigital.com" target="_blank" rel="noopener">SharplineDigital.com</a></p>
   </footer>
+
+  <script>
+    const paintingData = {
+      watercolours: {{ site.data.paintings.watercolours | jsonify }},
+      oils: {{ site.data.paintings.oils | jsonify }}
+    };
+
+    function openPaintingModal(section, index) {
+      const p = paintingData[section][index];
+      if (!p) return;
+
+      document.getElementById('painting-modal-title').textContent = p.title;
+
+      const hasDetails = p.canvas_size || p.framed_size || (p.price && !p.sold);
+      const detailsEl = document.getElementById('painting-modal-details');
+      const noteEl = document.getElementById('painting-modal-note');
+
+      if (hasDetails || p.sold) {
+        let rows = '';
+        if (p.canvas_size) rows += '<tr><td>Canvas size</td><td>' + p.canvas_size + '</td></tr>';
+        if (p.framed_size) rows += '<tr><td>Framed size</td><td>' + p.framed_size + '</td></tr>';
+        if (p.sold) {
+          rows += '<tr class="price-row"><td>Status</td><td>Sold</td></tr>';
+        } else if (p.price) {
+          rows += '<tr class="price-row"><td>Price</td><td>' + p.price + '</td></tr>';
+        }
+        detailsEl.innerHTML = rows;
+        detailsEl.style.display = rows ? 'table' : 'none';
+        noteEl.style.display = (p.canvas_size && p.framed_size && (p.price || p.sold)) ? 'none' : 'block';
+      } else {
+        detailsEl.innerHTML = '';
+        detailsEl.style.display = 'none';
+        noteEl.style.display = 'block';
+      }
+
+      document.getElementById('painting-modal-overlay').classList.add('open');
+    }
+
+    function closePaintingModal() {
+      document.getElementById('painting-modal-overlay').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePaintingModal();
+    });
+  </script>
 
 </body>
 </html>
