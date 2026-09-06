@@ -11,6 +11,12 @@ active: sandbox
 <link rel="stylesheet" href="style.css">
 <style>
 .tube-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(190px, 210px)); gap:1.25rem; margin-top:1.25rem; }
+.tube-grid-wrap { position:relative; }
+.tube-grid.collapsed { max-height:970px; overflow:hidden; }
+.tube-grid-fade { position:absolute; left:0; right:0; bottom:0; height:90px; background:linear-gradient(to bottom, rgba(250,247,240,0), #faf7f0 80%); pointer-events:none; display:none; }
+.tube-grid-fade.show { display:block; }
+.show-more-btn { display:flex; align-items:center; gap:0.4rem; margin:1rem auto 0; background:#fff; border:1px solid #d8d0c0; color:#2a2820; font-family:Arial,sans-serif; font-size:13px; font-weight:600; padding:0.55rem 1.25rem; cursor:pointer; letter-spacing:0.02em; }
+.show-more-btn:hover { background:#f7f4ec; }
 .tube-card { background:#fff; border:0.5px solid #d8d0c0; overflow:hidden; display:flex; flex-direction:column; cursor:zoom-in; }
 
 .lightbox-overlay { display:none; position:fixed; inset:0; background:rgba(20,18,14,0.75); z-index:200; align-items:center; justify-content:center; padding:2rem; }
@@ -60,16 +66,24 @@ active: sandbox
 
 <div class="section-label">37 mL Tubes</div>
 <p class="zoom-hint">Click any tube to see a larger, easier-to-read view.</p>
-<div id="tube-grid-37" class="tube-grid">
+<div class="tube-grid-wrap">
+<div id="tube-grid-37" class="tube-grid collapsed">
 <!-- Tube cards injected by script below -->
 </div>
+<div id="fade-tube-grid-37" class="tube-grid-fade show"></div>
+</div>
+<button type="button" class="show-more-btn" id="toggle-tube-grid-37" onclick="toggleGrid('tube-grid-37')">Show more colours &#9662;</button>
 
 <hr class="divider">
 
 <div class="section-label">150 mL Tubes</div>
-<div id="tube-grid-150" class="tube-grid">
+<div class="tube-grid-wrap">
+<div id="tube-grid-150" class="tube-grid collapsed">
 <!-- Tube cards injected by script below -->
 </div>
+<div id="fade-tube-grid-150" class="tube-grid-fade show"></div>
+</div>
+<button type="button" class="show-more-btn" id="toggle-tube-grid-150" onclick="toggleGrid('tube-grid-150')">Show more colours &#9662;</button>
 
 <div id="order-form-section" style="max-width:640px; margin-top:2.5rem;">
 <h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Order Gamblin Oils</h3>
@@ -430,6 +444,24 @@ document.addEventListener('keydown', function (e) {
 
 renderTubes('tube-grid-37', GAMBLIN_37, '37 mL');
 renderTubes('tube-grid-150', GAMBLIN_150, '150 mL');
+
+function toggleGrid(gridId) {
+  const grid = document.getElementById(gridId);
+  const fade = document.getElementById('fade-' + gridId);
+  const btn = document.getElementById('toggle-' + gridId);
+  const isCollapsed = grid.classList.contains('collapsed');
+  if (isCollapsed) {
+    grid.classList.remove('collapsed');
+    fade.classList.remove('show');
+    btn.innerHTML = 'Show fewer colours &#9652;';
+    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    grid.classList.add('collapsed');
+    fade.classList.add('show');
+    btn.innerHTML = 'Show more colours &#9662;';
+    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
 
 function money(n) { return '$' + n.toFixed(2); }
 
