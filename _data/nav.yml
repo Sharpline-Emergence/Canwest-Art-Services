@@ -1,7 +1,9 @@
 # Canwest Art Services — site navigation
-# To add a new product category: add one item under "products" (or "oilpaints"
-# for a new oil-paint brand) with a label and a url. It will appear on every
-# page automatically, already alphabetized. No HTML editing needed.
+# To add a new product category: add one item under "products" with a label
+# and a url. It will appear on every page automatically, already alphabetized.
+# The Paints dropdown is split into two brand groups instead: add an oil
+# brand under "oilpaints" or a watercolour brand under "watercolours". No
+# HTML editing needed either way.
 
 products:
   - label: Art Cards
@@ -20,5 +22,7 @@ oilpaints:
     url: artists-oils.html
   - label: Gamblin
     url: gamblin-oils.html
+
+watercolours:
   - label: Winsor & Newton
     url: winsor-newton.html

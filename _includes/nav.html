@@ -15,10 +15,16 @@
       </ul>
     </li>
     <li class="has-sub">
-      <a href="artists-oils.html"{% if page.active == "oilpaints" %} class="active"{% endif %}>Oil Paints &#9662;</a>
+      <a href="artists-oils.html"{% if page.active == "oilpaints" or page.active == "watercolours" %} class="active"{% endif %}>Paints &#9662;</a>
       <ul class="sub-menu">
+        <li class="sub-heading">Oil</li>
         {% assign oilpaint_items = site.data.nav.oilpaints | sort: "label" %}
         {% for item in oilpaint_items %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {% endfor %}
+        <li class="sub-heading">Watercolour</li>
+        {% assign watercolour_items = site.data.nav.watercolours | sort: "label" %}
+        {% for item in watercolour_items %}
         <li><a href="{{ item.url }}">{{ item.label }}</a></li>
         {% endfor %}
       </ul>
