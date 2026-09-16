@@ -7,7 +7,7 @@ active: watercolours
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Winsor & Newton Watercolours | Canwest Art Services</title>
-<meta name="description" content="Winsor & Newton Watercolours — coming soon from Canwest Art Services.">
+<meta name="description" content="Winsor & Newton Professional Watercolours — full colour range and pricing from Canwest Art Services.">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
@@ -15,10 +15,6 @@ active: watercolours
 .gamblin-banner { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; padding:1.5rem 0; }
 .gamblin-logo-box { width:auto; min-width:180px; height:100px; background:#f7f4ec; border:1px solid #e0d8c8; display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0.9rem 1.25rem; border-radius:4px; }
 .gamblin-logo-box img { max-height:100%; max-width:100%; width:auto; height:auto; display:block; }
-.gamblin-badge { display:inline-block; background:#f0ebe0; color:#7a6a50; font-size:11px; letter-spacing:0.04em; text-transform:uppercase; padding:0.25rem 0.6rem; font-family:Arial,sans-serif; margin-bottom:0.5rem; }
-.coming-soon-box { background:#fff; border:1px solid #d8d0c0; padding:2rem 1.75rem; margin-top:1.5rem; max-width:640px; }
-.coming-soon-box h3 { font-family:Georgia,serif; font-weight:400; color:#2a2820; margin-bottom:0.6rem; }
-.coming-soon-box p { font-family:Arial,sans-serif; font-size:14px; color:#5a5248; line-height:1.6; }
 .pdf-download-bar { background:#f0ebe0; border:1px solid #d8d0c0; padding:0.9rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
 .pdf-download-bar p { font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin:0; }
 .colour-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(225px, 1fr)); gap:1.5rem; margin:1.9rem 0 2.5rem; }
@@ -34,6 +30,25 @@ active: watercolours
 .colour-listing-fade.show { display:block; }
 .show-more-btn { display:flex; align-items:center; gap:0.4rem; margin:1.25rem auto 0; background:#fff; border:1px solid #d8d0c0; color:#2a2820; font-family:Arial,sans-serif; font-size:13px; font-weight:600; padding:0.55rem 1.25rem; cursor:pointer; letter-spacing:0.02em; }
 .show-more-btn:hover { background:#f7f4ec; }
+
+.price-section { margin:2rem 0 2.5rem; }
+.price-section h3 { font-family:Georgia,serif; font-weight:400; font-size:20px; color:#2a2820; margin-bottom:0.75rem; }
+.updated-note { font-size:12px; color:#9a9080; margin:0 0 0.25rem; font-family:Arial,sans-serif; }
+.tax-note { font-size:12px; color:#9a9080; margin:0 0 1.5rem; font-style:italic; font-family:Arial,sans-serif; }
+.price-group { margin-bottom:2.25rem; }
+.price-group h4 { font-family:Georgia, serif; font-weight:400; font-size:18px; color:#2a2820; border-bottom:2px solid #d8d0c0; padding-bottom:0.4rem; margin-bottom:0.4rem; }
+.price-group h5 { font-family:Georgia, serif; font-weight:400; font-size:15px; color:#7a6a50; margin:1.1rem 0 0.5rem; }
+table.price-table { width:100%; border-collapse:collapse; font-size:14px; }
+table.price-table th { text-align:left; font-family:Arial, sans-serif; font-size:12px; letter-spacing:0.03em; text-transform:uppercase; color:#9a9080; border-bottom:1px solid #d8d0c0; padding:0.5rem 0.6rem; }
+table.price-table th.price-col { text-align:right; }
+table.price-table td { padding:0.45rem 0.6rem; border-bottom:1px solid #ece7dd; }
+table.price-table td.price-col { text-align:right; white-space:nowrap; font-family:Arial, sans-serif; }
+table.price-table tr:nth-child(even) td { background:#fbf9f5; }
+.price-collapse { position:relative; max-height:1400px; overflow:hidden; transition:max-height 0.4s ease; }
+.price-collapse.expanded { max-height:none; }
+.price-collapse::after { content:""; position:absolute; left:0; right:0; bottom:0; height:120px; background:linear-gradient(to bottom, rgba(247,244,239,0), #f7f4ef); pointer-events:none; transition:opacity 0.3s ease; }
+.price-collapse.expanded::after { opacity:0; pointer-events:none; }
+.price-show-more-wrap { text-align:center; margin:-1.5rem 0 1.5rem; position:relative; z-index:1; }
 </style>
 </head>
 <body>
@@ -45,15 +60,220 @@ active: watercolours
 <div class="gamblin-banner">
 <div class="gamblin-logo-box"><img src="img/winsor-newton-logo.png" alt="Winsor & Newton"></div>
 <div>
-<div class="gamblin-badge">Coming soon</div>
 <h2>Winsor &amp; Newton Watercolours</h2>
-<p>We&rsquo;re adding Winsor &amp; Newton Watercolours to our lineup. Full colour range is shown below &mdash; sizing and pricing will be posted here soon.</p>
+<p>Winsor &amp; Newton Professional Watercolours &mdash; full colour range and current pricing below.</p>
 </div>
 </div>
 
-<div class="coming-soon-box">
-<h3>In the meantime</h3>
-<p>Contact us for current availability or to ask about specific Winsor &amp; Newton colours and sizes.</p>
+<div class="price-section">
+<h3>Price List</h3>
+<p class="updated-note">Price list current as of September 15, 2026</p>
+<p class="tax-note">Prices shown are per tube and do not include taxes.</p>
+
+<div class="price-collapse" id="priceCollapse">
+
+<div class="price-group">
+<h4>Reds</h4>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Pink Quinacridone Magenta</td><td class="price-col">$17.49</td><td class="price-col">$29.99</td></tr>
+<tr><td>Quinacridone Red</td><td class="price-col">$17.49</td><td class="price-col">$29.99</td></tr>
+<tr><td>Cadmium-Free Red Deep</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Alizarin Crimson</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Pink- Opera Rose</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Cadmium Red Deep</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium Red</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Venetian Red</td><td class="price-col">$12.99</td><td class="price-col">$27.49</td></tr>
+<tr><td>Permanent Alizarin Crimson</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Permanent Rose</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Cadmium Scarlet</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Rose Dore</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Rose Madder Genuine</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Scarlet Lake</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Winsor Red Deep</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Winsor Red</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Cadmium-Free Scarlet</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium-Free Red</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Potter's Pink</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Permanent Carmine</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="price-group">
+<h4>Browns, Whites &amp; Blacks</h4>
+
+<h5>Browns</h5>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Raw Umber</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Burnt Umber</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Raw Sienna</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Van Dyke Brown</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Burnt Sienna</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Sepia</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Indian Red</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Brown Madder</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Magnesium Brown</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+</tbody>
+</table>
+
+<h5>Whites</h5>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Chinese White</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Titanium White</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+</tbody>
+</table>
+
+<h5>Blacks</h5>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Lamp Black</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Ivory Black</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Mars Black</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="price-group">
+<h4>Blues</h4>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Antwerp Blue</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Cerulean Blue</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Cerulean Blue Red Shade</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Cobalt Blue</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cobalt Blue Deep</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cobalt Blue Turquoise</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cobalt Blue Turquoise Light</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>French Ultramarine Blue</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Indanthrone Blue</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Indigo</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Manganese Blue Hue</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Phthalo Turquoise</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Prussian Blue</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Ultramarine Green</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Aqua Green (Jewel Tone)</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Winsor Blue (Green Shade)</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Winsor Blue (Red Shade)</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Smalt (Dumont's Bl. Jewel)</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="price-group">
+<h4>Purples &amp; Greys</h4>
+
+<h5>Purples</h5>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Tyrian Purple</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Caput Mortem Violet</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Permanent Magenta</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Cobalt Violet</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Permanent Mauve</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Perylene Maroon</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Quinacridone Violet</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Ultramarine Violet</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Winsor Violet (Dioxazine)</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Perylene Violet</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+</tbody>
+</table>
+
+<h5>Greys</h5>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Ultramarine Ash</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Mineral Grey</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Ostwald Grey</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Payne's Grey</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Davy's Grey</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Neutral Tint</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="price-group">
+<h4>Oranges &amp; Greens</h4>
+
+<h5>Oranges</h5>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Field's Orange</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Cadmium-Free Orange</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Indian Yellow</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Cadmium Orange</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Winsor Orange</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Transparent Orange Jewel Tone</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+</tbody>
+</table>
+
+<h5>Greens</h5>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Cinnabar Green</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Viridian Hue</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Cobalt Green Deep (Jewel Tone)</td><td class="price-col">$17.49</td><td class="price-col">$29.99</td></tr>
+<tr><td>Green Gold</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Hooker's Green</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Olive Green</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Oxide of Chromium</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Perylene Green</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Permanent Sap Green</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Terre Verte</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Winsor Green (Blue Shade)</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Winsor Green (Yellow Shade)</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Cobalt Green</td><td class="price-col">$15.49</td><td class="price-col">$37.49</td></tr>
+<tr><td>Aqua Green (Jewel Tone)</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="price-group">
+<h4>Yellows</h4>
+<table class="price-table">
+<thead><tr><th>Colour</th><th class="price-col">5 mL</th><th class="price-col">14 mL</th></tr></thead>
+<tbody>
+<tr><td>Aurolin Hue</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Bismuth Yellow</td><td class="price-col">$12.49</td><td class="price-col">$21.90</td></tr>
+<tr><td>Cadmium Yellow</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium Lemon</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium Yellow Deep</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium Yellow Pale</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>New Gamboge</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Gold Ochre</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Lemon Yellow (Nickel Titanate)</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Lemon Yellow Deep</td><td class="price-col">$15.49</td><td class="price-col">$27.49</td></tr>
+<tr><td>Naples Yellow</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Transparent Gold Deep</td><td class="price-col">$17.49</td><td class="price-col">$29.49</td></tr>
+<tr><td>Transparent Yellow</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Winsor Lemon</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Winsor Yellow Deep</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Yellow Ochre</td><td class="price-col">$12.99</td><td class="price-col">$21.99</td></tr>
+<tr><td>Cadmium-Free Yellow</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium-Free Yellow Deep</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium-Free Lemon</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+<tr><td>Cadmium-Free Yellow Pale</td><td class="price-col">$18.99</td><td class="price-col">$37.49</td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div class="price-show-more-wrap">
+<button type="button" class="show-more-btn" id="priceShowMoreBtn" onclick="togglePriceList()">Show more pricing &#9662;</button>
+</div>
+
 </div>
 
 <div class="colour-listing-wrap">
@@ -239,6 +459,19 @@ function toggleColourListing() {
     fade.classList.add('show');
     btn.innerHTML = 'Show more colours &#9662;';
     btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function togglePriceList() {
+  const el = document.getElementById('priceCollapse');
+  const btn = document.getElementById('priceShowMoreBtn');
+  const expanded = el.classList.toggle('expanded');
+  if (expanded) {
+    btn.innerHTML = 'Show less pricing &#9652;';
+    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
+    btn.innerHTML = 'Show more pricing &#9662;';
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 </script>
