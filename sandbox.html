@@ -298,13 +298,21 @@ active: art-classes
     <circle cx="270" cy="165" r="3" fill="#3f9e5c" opacity="0.8"/>
     <circle cx="80" cy="130" r="3" fill="#e0b23a" opacity="0.75"/>
     <circle cx="210" cy="120" r="3.5" fill="#8a52b8" opacity="0.75"/>
-    <!-- brush handle -->
-    <rect x="152" y="20" width="14" height="95" rx="6" fill="#7a4a2b" transform="rotate(18 159 67)"/>
-    <rect x="150" y="105" width="18" height="22" rx="3" fill="#c9a86a" transform="rotate(18 159 116)"/>
-    <!-- ferrule -->
-    <rect x="148" y="120" width="20" height="14" rx="2" fill="#b8b8b8" transform="rotate(18 158 127)"/>
-    <!-- bristles dipping into paint, tinted -->
-    <path d="M158 128 Q150 150 158 172 Q166 150 158 128 Z" fill="#e0b23a" opacity="0.9" transform="rotate(18 158 150)"/>
+    <!-- paintbrush, built as one rigid unit so every part stays joined -->
+    <g transform="rotate(14 160 20)">
+      <!-- handle -->
+      <rect x="151" y="15" width="18" height="78" rx="9" fill="#7a4a2b"/>
+      <rect x="155" y="20" width="5" height="68" rx="2.5" fill="#9a6a42" opacity="0.6"/>
+      <!-- ferrule (metal band) -->
+      <rect x="149" y="90" width="22" height="20" rx="3" fill="#c7c7c7"/>
+      <rect x="149" y="96" width="22" height="2" fill="#a3a3a3"/>
+      <rect x="149" y="103" width="22" height="2" fill="#a3a3a3"/>
+      <!-- bristles, tapering to a loaded point -->
+      <path d="M150 108 L170 108 L163 168 L160 179 L157 168 Z" fill="#e0b23a"/>
+      <path d="M154 108 L166 108 L161 162 L160 172 L159 162 Z" fill="#f0cf6a" opacity="0.6"/>
+      <!-- trailing drip toward the puddle -->
+      <path d="M160 178 C 161 188, 158 197, 160 208" stroke="#e0b23a" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+    </g>
   </svg>
   <h1>Just Bring Yourself &mdash; Watercolour Workshops</h1>
   <p class="tagline">with Errol Brimacombe &middot; Chilliwack, B.C.</p>
