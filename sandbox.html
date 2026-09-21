@@ -287,6 +287,9 @@ active: products
     .paintings-grid { align-items:start; }
     .painting-img.has-photo { aspect-ratio:auto; background:none; }
     .painting-img.has-photo img { width:100%; height:auto; object-fit:contain; display:block; }
+
+    /* oils: two larger columns (portraits side by side, landscapes below) */
+    #oils-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
   </style>
 </head>
 <body>
@@ -375,22 +378,6 @@ active: products
       ],
       oils: [
         {
-          title: 'Rising Mist',
-          orientation: 'landscape',
-          image: 'img/paintings/rising-mist-oil.webp',
-          medium: 'Oil on 1\u00BD in. gallery canvas',
-          canvas_size: '24 x 36 in',
-          price: '$3,500'
-        },
-        {
-          title: 'Autumn Ablaze',
-          orientation: 'landscape',
-          image: 'img/paintings/autumn-ablaze.webp',
-          medium: 'Oil on 1\u00BD in. gallery canvas',
-          canvas_size: '36 x 60 in',
-          price: '$6,400'
-        },
-        {
           title: 'A Happening Autumn',
           orientation: 'portrait',
           image: 'img/paintings/a-happening-autumn.webp',
@@ -405,6 +392,22 @@ active: products
           medium: 'Oil on 1\u00BD in. gallery canvas',
           canvas_size: '30 x 36 in',
           price: '$3,900'
+        },
+        {
+          title: 'Rising Mist',
+          orientation: 'landscape',
+          image: 'img/paintings/rising-mist-oil.webp',
+          medium: 'Oil on 1\u00BD in. gallery canvas',
+          canvas_size: '24 x 36 in',
+          price: '$3,500'
+        },
+        {
+          title: 'Autumn Ablaze',
+          orientation: 'landscape',
+          image: 'img/paintings/autumn-ablaze.webp',
+          medium: 'Oil on 1\u00BD in. gallery canvas',
+          canvas_size: '36 x 60 in',
+          price: '$6,400'
         }
       ]
     };
