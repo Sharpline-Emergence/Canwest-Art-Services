@@ -282,6 +282,11 @@ active: products
     /* show the finished painting in the popup without cropping it */
     .painting-modal-img { aspect-ratio:auto; max-height:none; background:#f2ede2; }
     .painting-modal-img img { width:100%; height:auto; max-height:70vh; object-fit:contain; display:block; }
+
+    /* grid cards: show the whole painting, whatever its shape */
+    .paintings-grid { align-items:start; }
+    .painting-img.has-photo { aspect-ratio:auto; background:none; }
+    .painting-img.has-photo img { width:100%; height:auto; object-fit:contain; display:block; }
   </style>
 </head>
 <body>
@@ -367,6 +372,14 @@ active: products
           medium: 'Oil on 1\u00BD in. gallery canvas',
           canvas_size: '24 x 36 in',
           price: '$3,500'
+        },
+        {
+          title: 'Autumn Ablaze',
+          orientation: 'landscape',
+          image: 'img/paintings/autumn-ablaze.webp',
+          medium: 'Oil on 1\u00BD in. gallery canvas',
+          canvas_size: '36 x 60 in',
+          price: '$6,400'
         }
       ]
     };
@@ -392,7 +405,7 @@ active: products
         card.className = 'painting-card';
         card.onclick = function () { openPaintingModal(section, i); };
         card.innerHTML =
-          '<div class="painting-img orientation-' + esc(p.orientation || 'square') + '">' + img +
+          '<div class="painting-img orientation-' + esc(p.orientation || 'square') + (p.image ? ' has-photo' : '') + '">' + img +
           '<span class="zoom-badge"><i class="ti ti-zoom-in" aria-hidden="true"></i></span></div>' +
           '<div class="painting-title">' + esc(p.title) + '</div>';
         grid.appendChild(card);
