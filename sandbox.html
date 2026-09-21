@@ -295,8 +295,11 @@ active: products
     <h2>Paintings by Errol Brimacombe</h2>
     <p class="intro">Click on any painting for full details.</p>
 
-    <div class="medium-heading">Watercolours</div>
-    <div class="paintings-grid" id="preview-grid"></div>
+    <div class="medium-heading" id="watercolours-heading">Watercolours</div>
+    <div class="paintings-grid" id="watercolours-grid"></div>
+
+    <div class="medium-heading" id="oils-heading">Oil Paintings</div>
+    <div class="paintings-grid" id="oils-grid"></div>
 
     <div style="text-align:center; margin-top:2.5rem;">
       <a href="contact.html" class="btn-primary">Painting inquiries</a>
@@ -326,35 +329,47 @@ active: products
 
   <script>
     // Preview data (typed in here so this page works without touching paintings.yml)
-    const previewPaintings = [
-      {
-        title: 'Morning Mist',
-        orientation: 'landscape',
-        image: 'img/paintings/morning-mist.webp',
-        medium: 'Watercolour on Arches 300 lb paper',
-        canvas_size: '20 x 28 in',
-        framed_size: '28 x 36 in',
-        price: '$1,200 unframed / $1,895 framed'
-      },
-      {
-        title: 'A Walk Under the Aurora',
-        orientation: 'landscape',
-        image: 'img/paintings/a-walk-under-the-aurora.webp',
-        medium: 'Watercolour on Arches 300 lb paper',
-        canvas_size: '20 x 28 in',
-        framed_size: '28 x 36 in',
-        price: '$1,200 unframed / $1,895 framed'
-      },
-      {
-        title: 'Northern Wilderness',
-        orientation: 'landscape',
-        image: 'img/paintings/northern-wilderness.webp',
-        medium: 'Watercolour on Arches 300 lb paper',
-        canvas_size: '20 x 28 in',
-        framed_size: '28 x 36 in',
-        price: '$1,200 unframed / $1,895 framed'
-      }
-    ];
+    const previewPaintings = {
+      watercolours: [
+        {
+          title: 'Morning Mist',
+          orientation: 'landscape',
+          image: 'img/paintings/morning-mist.webp',
+          medium: 'Watercolour on Arches 300 lb paper',
+          canvas_size: '20 x 28 in',
+          framed_size: '28 x 36 in',
+          price: '$1,200 unframed / $1,895 framed'
+        },
+        {
+          title: 'A Walk Under the Aurora',
+          orientation: 'landscape',
+          image: 'img/paintings/a-walk-under-the-aurora.webp',
+          medium: 'Watercolour on Arches 300 lb paper',
+          canvas_size: '20 x 28 in',
+          framed_size: '28 x 36 in',
+          price: '$1,200 unframed / $1,895 framed'
+        },
+        {
+          title: 'Northern Wilderness',
+          orientation: 'landscape',
+          image: 'img/paintings/northern-wilderness.webp',
+          medium: 'Watercolour on Arches 300 lb paper',
+          canvas_size: '20 x 28 in',
+          framed_size: '28 x 36 in',
+          price: '$1,200 unframed / $1,895 framed'
+        }
+      ],
+      oils: [
+        {
+          title: 'Rising Mist',
+          orientation: 'landscape',
+          image: 'img/paintings/rising-mist-oil.webp',
+          medium: 'Oil on 1\u00BD in. gallery canvas',
+          canvas_size: '24 x 36 in',
+          price: '$3,500'
+        }
+      ]
+    };
 
     function esc(s) {
       return String(s).replace(/[&<>"']/g, function (c) {
@@ -362,25 +377,30 @@ active: products
       });
     }
 
-    // Build the cards
-    const grid = document.getElementById('preview-grid');
-    previewPaintings.forEach(function (p, i) {
-      const img = p.image
-        ? '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy">'
-        : '<span class="placeholder">Photo coming soon</span>';
-      const card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'painting-card';
-      card.onclick = function () { openPaintingModal(i); };
-      card.innerHTML =
-        '<div class="painting-img orientation-' + esc(p.orientation || 'square') + '">' + img +
-        '<span class="zoom-badge"><i class="ti ti-zoom-in" aria-hidden="true"></i></span></div>' +
-        '<div class="painting-title">' + esc(p.title) + '</div>';
-      grid.appendChild(card);
+    // Build the cards for each section; hide a section that has no paintings
+    ['watercolours', 'oils'].forEach(function (section) {
+      const list = previewPaintings[section];
+      const grid = document.getElementById(section + '-grid');
+      const heading = document.getElementById(section + '-heading');
+      if (!list.length) { grid.style.display = 'none'; heading.style.display = 'none'; return; }
+      list.forEach(function (p, i) {
+        const img = p.image
+          ? '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy">'
+          : '<span class="placeholder">Photo coming soon</span>';
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'painting-card';
+        card.onclick = function () { openPaintingModal(section, i); };
+        card.innerHTML =
+          '<div class="painting-img orientation-' + esc(p.orientation || 'square') + '">' + img +
+          '<span class="zoom-badge"><i class="ti ti-zoom-in" aria-hidden="true"></i></span></div>' +
+          '<div class="painting-title">' + esc(p.title) + '</div>';
+        grid.appendChild(card);
+      });
     });
 
-    function openPaintingModal(index) {
-      const p = previewPaintings[index];
+    function openPaintingModal(section, index) {
+      const p = previewPaintings[section][index];
       if (!p) return;
 
       document.getElementById('painting-modal-title').textContent = p.title;
@@ -388,9 +408,12 @@ active: products
         ? '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '">'
         : '<span class="placeholder">Photo coming soon</span>';
 
+      // Paper works are measured by image, canvases by canvas
+      const sizeLabel = section === 'watercolours' ? 'Image size' : 'Canvas size';
+
       let rows = '';
       if (p.medium)       rows += '<tr><td>Medium</td><td>' + esc(p.medium) + '</td></tr>';
-      if (p.canvas_size)  rows += '<tr><td>Image size</td><td>' + esc(p.canvas_size) + '</td></tr>';
+      if (p.canvas_size)  rows += '<tr><td>' + sizeLabel + '</td><td>' + esc(p.canvas_size) + '</td></tr>';
       if (p.framed_size)  rows += '<tr><td>Framed size</td><td>' + esc(p.framed_size) + '</td></tr>';
       if (p.price)        rows += '<tr class="price-row"><td>Price</td><td>' + esc(p.price) + '</td></tr>';
       document.getElementById('painting-modal-details').innerHTML = rows;
