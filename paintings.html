@@ -112,16 +112,6 @@ active: products
       object-fit: cover;
     }
 
-    .painting-img .placeholder {
-      color: #b8aa98;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 1rem;
-    }
-
     .painting-img .zoom-badge {
       position: absolute;
       bottom: 8px;
@@ -195,14 +185,6 @@ active: products
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .painting-modal-img .placeholder {
-      color: #b8aa98;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-family: Arial, sans-serif;
     }
 
     .painting-modal-body { padding: 1.25rem 1.5rem 1.5rem; }
@@ -299,14 +281,16 @@ active: products
     <div class="medium-heading">Watercolours</div>
     <div class="paintings-grid">
       {% for painting in site.data.paintings.watercolours %}
+      {% if painting.image %}
       <button type="button" class="painting-card" onclick="openPaintingModal('watercolours', {{ forloop.index0 }})">
         <div class="painting-img orientation-{{ painting.orientation | default: 'square' }}">
-          <span class="placeholder">Photo coming soon</span>
+          <img src="{{ painting.image }}" alt="{{ painting.title | escape }}" loading="lazy">
           {% if painting.sold %}<span class="sold-badge">Sold</span>{% endif %}
           <span class="zoom-badge"><i class="ti ti-zoom-in" aria-hidden="true"></i></span>
         </div>
         <div class="painting-title">{{ painting.title }}</div>
       </button>
+      {% endif %}
       {% endfor %}
     </div>
 
@@ -314,14 +298,16 @@ active: products
     <div class="medium-heading">Oil Paintings</div>
     <div class="paintings-grid">
       {% for painting in site.data.paintings.oils %}
+      {% if painting.image %}
       <button type="button" class="painting-card" onclick="openPaintingModal('oils', {{ forloop.index0 }})">
         <div class="painting-img orientation-{{ painting.orientation | default: 'square' }}">
-          <span class="placeholder">Photo coming soon</span>
+          <img src="{{ painting.image }}" alt="{{ painting.title | escape }}" loading="lazy">
           {% if painting.sold %}<span class="sold-badge">Sold</span>{% endif %}
           <span class="zoom-badge"><i class="ti ti-zoom-in" aria-hidden="true"></i></span>
         </div>
         <div class="painting-title">{{ painting.title }}</div>
       </button>
+      {% endif %}
       {% endfor %}
     </div>
 
@@ -333,7 +319,7 @@ active: products
   <!-- MODAL -->
   <div class="painting-modal-overlay" id="painting-modal-overlay" onclick="if(event.target===this) closePaintingModal()">
     <div class="painting-modal">
-      <div class="painting-modal-img" id="painting-modal-img"><span class="placeholder">Photo coming soon</span></div>
+      <div class="painting-modal-img" id="painting-modal-img"></div>
       <div class="painting-modal-body">
         <div class="painting-modal-head">
           <h3 id="painting-modal-title"></h3>
@@ -363,6 +349,15 @@ active: products
       if (!p) return;
 
       document.getElementById('painting-modal-title').textContent = p.title;
+
+      const imgBox = document.getElementById('painting-modal-img');
+      imgBox.innerHTML = '';
+      if (p.image) {
+        const im = document.createElement('img');
+        im.src = p.image;
+        im.alt = p.title;
+        imgBox.appendChild(im);
+      }
 
       const hasDetails = p.canvas_size || p.framed_size || (p.price && !p.sold);
       const detailsEl = document.getElementById('painting-modal-details');
