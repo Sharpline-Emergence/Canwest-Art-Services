@@ -7,7 +7,7 @@
 
 products:
   - label: Canvases
-    url: canvases.html#canvases
+    url: canvas-info.html
   - label: Master Product Listing
     url: master-product-listing.html
   - label: Paintings
