@@ -325,7 +325,7 @@ active: products
     <p class="intro">Click on any painting for full details.</p>
 
     <div class="painting-tabs">
-      <button type="button" class="painting-tab" id="tab-watercolours" onclick="showPaintingTab('watercolours')">Watercolours</button>
+      <button type="button" class="painting-tab" id="tab-watercolours" onclick="showPaintingTab('watercolours')">Watercolour Paintings</button>
       <button type="button" class="painting-tab" id="tab-oils" onclick="showPaintingTab('oils')">Oil Paintings</button>
     </div>
 
@@ -493,9 +493,12 @@ active: products
         document.getElementById('tab-' + s).classList.toggle('active', s === section);
       });
       // Reflect the choice in the URL so nav links can deep-link to a tab
-      const url = new URL(window.location);
-      url.searchParams.set('type', section);
-      window.history.replaceState({}, '', url);
+      // (best-effort — some embedded/sandboxed preview contexts block history writes)
+      try {
+        const url = new URL(window.location);
+        url.searchParams.set('type', section);
+        window.history.replaceState({}, '', url);
+      } catch (err) { /* ignore */ }
     }
 
     (function initTabs() {
