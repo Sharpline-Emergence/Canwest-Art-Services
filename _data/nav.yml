@@ -6,16 +6,14 @@
 # HTML editing needed either way.
 
 products:
-  - label: Art Cards
-    url: products.html#artcards
   - label: Canvases
-    url: products.html#canvases
+    url: canvases.html#canvases
   - label: Master Product Listing
     url: master-product-listing.html
   - label: Paintings
     url: paintings.html
   - label: Watercolour Paper
-    url: products.html#watercolourpaper
+    url: canvases.html#watercolourpaper
 
 oilpaints:
   - label: Cranfield
