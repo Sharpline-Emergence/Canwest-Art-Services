@@ -1,9 +1,9 @@
 # Canwest Art Services — site navigation
-# To add a new product category: add one item under "products" with a label
-# and a url. It will appear on every page automatically, already alphabetized.
-# The Paints dropdown is split into two brand groups instead: add an oil
-# brand under "oilpaints" or a watercolour brand under "watercolours". No
-# HTML editing needed either way.
+# To add an item to the "Products" tab: add one item under "products" with
+# a label and a url. It appears on every page automatically, already
+# alphabetized. The Paints dropdown is split into two brand groups instead:
+# add an oil brand under "oilpaints" or a watercolour brand under
+# "watercolours". No HTML editing needed either way.
 
 products:
   - label: Canvases
