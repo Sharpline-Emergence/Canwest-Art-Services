@@ -60,17 +60,35 @@ active: products
       .bio-portrait { max-width: 260px; margin: 0 auto; }
     }
 
-    .medium-heading {
+    /* ---- TABS ---- */
+    .painting-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid #ede8dc;
+    }
+
+    .painting-tab {
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0 0 0.6rem;
+      margin-right: 1.75rem;
       font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #2a2820;
+      color: #9a9080;
       font-family: Arial, sans-serif;
       font-weight: 700;
-      margin: 2.5rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #c4a96b;
-      display: inline-block;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .painting-tab:hover { color: #5a5248; }
+
+    .painting-tab.active {
+      color: #2a2820;
+      border-bottom-color: #c4a96b;
     }
 
     .paintings-grid {
@@ -78,6 +96,8 @@ active: products
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
+
+    .paintings-grid.hidden { display: none; }
 
     .painting-card {
       cursor: pointer;
@@ -304,10 +324,12 @@ active: products
     <h2>Paintings by Errol Brimacombe</h2>
     <p class="intro">Click on any painting for full details.</p>
 
-    <div class="medium-heading" id="watercolours-heading">Watercolours</div>
-    <div class="paintings-grid" id="watercolours-grid"></div>
+    <div class="painting-tabs">
+      <button type="button" class="painting-tab" id="tab-watercolours" onclick="showPaintingTab('watercolours')">Watercolours</button>
+      <button type="button" class="painting-tab" id="tab-oils" onclick="showPaintingTab('oils')">Oil Paintings</button>
+    </div>
 
-    <div class="medium-heading" id="oils-heading">Oil Paintings</div>
+    <div class="paintings-grid" id="watercolours-grid"></div>
     <div class="paintings-grid" id="oils-grid"></div>
 
     <div style="text-align:center; margin-top:2.5rem;">
@@ -390,7 +412,7 @@ active: products
           title: 'A Happening Autumn',
           orientation: 'portrait',
           image: 'img/paintings/a-happening-autumn.webp',
-          medium: 'Oil on 1\u00BD in. gallery canvas',
+          medium: 'Oil on 1½ in. gallery canvas',
           canvas_size: '30 x 36 in',
           price: '$3,900'
         },
@@ -398,7 +420,7 @@ active: products
           title: 'Autumn in Motion',
           orientation: 'portrait',
           image: 'img/paintings/autumn-in-motion.webp',
-          medium: 'Oil on 1\u00BD in. gallery canvas',
+          medium: 'Oil on 1½ in. gallery canvas',
           canvas_size: '30 x 36 in',
           price: '$3,900'
         },
@@ -406,7 +428,7 @@ active: products
           title: 'Rising Mist',
           orientation: 'landscape',
           image: 'img/paintings/rising-mist-oil.webp',
-          medium: 'Oil on 1\u00BD in. gallery canvas',
+          medium: 'Oil on 1½ in. gallery canvas',
           canvas_size: '24 x 36 in',
           price: '$3,500'
         },
@@ -414,7 +436,7 @@ active: products
           title: 'Autumn Ablaze',
           orientation: 'landscape',
           image: 'img/paintings/autumn-ablaze.webp',
-          medium: 'Oil on 1\u00BD in. gallery canvas',
+          medium: 'Oil on 1½ in. gallery canvas',
           canvas_size: '36 x 60 in',
           price: '$6,400'
         },
@@ -443,12 +465,10 @@ active: products
       });
     }
 
-    // Build the cards for each section; hide a section that has no paintings
+    // Build the cards for each section
     ['watercolours', 'oils'].forEach(function (section) {
       const list = previewPaintings[section];
       const grid = document.getElementById(section + '-grid');
-      const heading = document.getElementById(section + '-heading');
-      if (!list.length) { grid.style.display = 'none'; heading.style.display = 'none'; return; }
       list.forEach(function (p, i) {
         const img = p.image
           ? '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy">'
@@ -464,6 +484,29 @@ active: products
         grid.appendChild(card);
       });
     });
+
+    // Tabs: show one section's grid at a time. A section with no paintings
+    // is skipped entirely (its tab is hidden) rather than shown empty.
+    function showPaintingTab(section) {
+      ['watercolours', 'oils'].forEach(function (s) {
+        document.getElementById(s + '-grid').classList.toggle('hidden', s !== section);
+        document.getElementById('tab-' + s).classList.toggle('active', s === section);
+      });
+      // Reflect the choice in the URL so nav links can deep-link to a tab
+      const url = new URL(window.location);
+      url.searchParams.set('type', section);
+      window.history.replaceState({}, '', url);
+    }
+
+    (function initTabs() {
+      const available = ['watercolours', 'oils'].filter(function (s) { return previewPaintings[s].length; });
+      available.forEach(function (s) {
+        if (!previewPaintings[s].length) document.getElementById('tab-' + s).style.display = 'none';
+      });
+      const requested = new URLSearchParams(window.location.search).get('type');
+      const initial = available.includes(requested) ? requested : (available[0] || 'watercolours');
+      showPaintingTab(initial);
+    })();
 
     function openPaintingModal(section, index) {
       const p = previewPaintings[section][index];
