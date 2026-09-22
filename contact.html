@@ -76,6 +76,19 @@ font-size: 14px;
 color: #5a5248;
 line-height: 1.9;
 }
+.painting-inquiry-note {
+display: none;
+margin-top: 1.5rem;
+padding: 0.75rem 1rem;
+background: #f2ede2;
+border: 0.5px solid #d8d0c0;
+font-family: Arial, sans-serif;
+font-size: 13px;
+color: #5a5248;
+}
+.painting-inquiry-note strong {
+color: #2a2820;
+}
 </style>
 </head>
 <body>
@@ -85,9 +98,13 @@ line-height: 1.9;
 <h2>Contact Us</h2>
 <p class="intro">Questions about a painting, an order, or anything else? Send us a message and we'll get back to you &mdash; or give us a call.</p>
 
+<div class="painting-inquiry-note" id="painting-inquiry-note">
+Inquiring about: <strong id="painting-inquiry-title"></strong>
+</div>
+
 <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
 <input type="hidden" name="access_key" value="a0dc08e3-731c-4219-b6e4-4530e5ca5552">
-<input type="hidden" name="subject" value="Contact Form Submission &mdash; canwestart.ca">
+<input type="hidden" name="subject" id="contact-subject" value="Contact Form Submission &mdash; canwestart.ca">
 <input type="checkbox" name="botcheck" style="display:none;">
 
 <label for="name">Name</label>
@@ -117,5 +134,25 @@ Prefer to call or text? 604-793-5026
 <footer class="footer">
 <p>&copy; 2026 Canwest Art Services &middot; Chilliwack, BC &middot; All rights reserved &middot; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; Site design by <a href="https://sharplinedigital.com" target="_blank" rel="noopener">SharplineDigital.com</a></p>
 </footer>
+
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var painting = params.get('painting');
+  if (!painting) return;
+
+  var noteEl = document.getElementById('painting-inquiry-note');
+  var noteTitleEl = document.getElementById('painting-inquiry-title');
+  var subjectEl = document.getElementById('contact-subject');
+  var messageEl = document.getElementById('message');
+
+  noteTitleEl.textContent = painting;
+  noteEl.style.display = 'block';
+
+  subjectEl.value = 'Painting Inquiry — ' + painting + ' — canwestart.ca';
+  messageEl.value = 'I’m interested in "' + painting + '." Please send me more details.';
+})();
+</script>
+
 </body>
 </html>

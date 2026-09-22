@@ -326,7 +326,7 @@ active: products
         </div>
         <table class="painting-modal-details" id="painting-modal-details"></table>
         <div class="painting-modal-cta">
-          <a href="contact.html" class="btn-sm">Inquire about this piece</a>
+          <a href="contact.html" class="btn-sm" id="painting-modal-inquire">Inquire about this piece</a>
         </div>
       </div>
     </div>
@@ -473,6 +473,8 @@ active: products
       document.getElementById('painting-modal-img').innerHTML = p.image
         ? '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '">'
         : '<span class="placeholder">Photo coming soon</span>';
+      document.getElementById('painting-modal-inquire').href =
+        'contact.html?painting=' + encodeURIComponent(p.title);
 
       // Paper works are measured by image, canvases by canvas
       const sizeLabel = section === 'watercolours' ? 'Image size' : 'Canvas size';
