@@ -62,17 +62,35 @@ active: products
       .bio-portrait { max-width: 260px; margin: 0 auto; }
     }
 
-    .medium-heading {
+    /* ---- TABS ---- */
+    .painting-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid #ede8dc;
+    }
+
+    .painting-tab {
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0 0 0.6rem;
+      margin-right: 1.75rem;
       font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #2a2820;
+      color: #9a9080;
       font-family: Arial, sans-serif;
       font-weight: 700;
-      margin: 2.5rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #c4a96b;
-      display: inline-block;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .painting-tab:hover { color: #5a5248; }
+
+    .painting-tab.active {
+      color: #2a2820;
+      border-bottom-color: #c4a96b;
     }
 
     .paintings-grid {
@@ -80,6 +98,8 @@ active: products
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
+
+    .paintings-grid.hidden { display: none; }
 
     .painting-card {
       cursor: pointer;
@@ -275,9 +295,13 @@ active: products
       </div>
     </div>
 
+    <div class="painting-tabs">
+      <button type="button" class="painting-tab" id="tab-watercolours" onclick="showPaintingTab('watercolours')">Watercolour Paintings</button>
+      <button type="button" class="painting-tab" id="tab-oils" onclick="showPaintingTab('oils')">Oil Paintings</button>
+    </div>
+
     <!-- WATERCOLOURS -->
-    <div class="medium-heading">Watercolours</div>
-    <div class="paintings-grid">
+    <div class="paintings-grid" id="watercolours-grid">
       {% for painting in site.data.paintings.watercolours %}
       {% if painting.image %}
       <button type="button" class="painting-card" onclick="openPaintingModal('watercolours', {{ forloop.index0 }})">
@@ -293,8 +317,7 @@ active: products
     </div>
 
     <!-- OILS -->
-    <div class="medium-heading">Oil Paintings</div>
-    <div class="paintings-grid">
+    <div class="paintings-grid" id="oils-grid">
       {% for painting in site.data.paintings.oils %}
       {% if painting.image %}
       <button type="button" class="painting-card" onclick="openPaintingModal('oils', {{ forloop.index0 }})">
@@ -326,7 +349,7 @@ active: products
         <table class="painting-modal-details" id="painting-modal-details"></table>
         <p class="painting-modal-note" id="painting-modal-note" style="display:none;">Size and pricing available on request — contact us for current details.</p>
         <div class="painting-modal-cta">
-          <a href="contact.html" class="btn-sm">Inquire about this piece</a>
+          <a href="contact.html" class="btn-sm" id="painting-modal-inquire">Inquire about this piece</a>
         </div>
       </div>
     </div>
@@ -347,6 +370,8 @@ active: products
       if (!p) return;
 
       document.getElementById('painting-modal-title').textContent = p.title;
+      document.getElementById('painting-modal-inquire').href =
+        'contact.html?painting=' + encodeURIComponent(p.title);
 
       const imgBox = document.getElementById('painting-modal-img');
       imgBox.innerHTML = '';
@@ -357,12 +382,13 @@ active: products
         imgBox.appendChild(im);
       }
 
-      const hasDetails = p.canvas_size || p.framed_size || (p.price && !p.sold);
+      const hasDetails = p.medium || p.canvas_size || p.framed_size || (p.price && !p.sold);
       const detailsEl = document.getElementById('painting-modal-details');
       const noteEl = document.getElementById('painting-modal-note');
 
       if (hasDetails || p.sold) {
         let rows = '';
+        if (p.medium) rows += '<tr><td>Medium</td><td>' + p.medium + '</td></tr>';
         if (p.canvas_size) rows += '<tr><td>Canvas size</td><td>' + p.canvas_size + '</td></tr>';
         if (p.framed_size) rows += '<tr><td>Framed size</td><td>' + p.framed_size + '</td></tr>';
         if (p.sold) {
@@ -372,7 +398,7 @@ active: products
         }
         detailsEl.innerHTML = rows;
         detailsEl.style.display = rows ? 'table' : 'none';
-        noteEl.style.display = (p.canvas_size && p.framed_size && (p.price || p.sold)) ? 'none' : 'block';
+        noteEl.style.display = (p.canvas_size && (p.framed_size || p.medium) && (p.price || p.sold)) ? 'none' : 'block';
       } else {
         detailsEl.innerHTML = '';
         detailsEl.style.display = 'none';
@@ -389,6 +415,34 @@ active: products
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closePaintingModal();
     });
+
+    // Tabs: show one section's grid at a time. A section with no rendered
+    // cards (e.g. every entry still missing a photo) is skipped entirely.
+    function showPaintingTab(section) {
+      ['watercolours', 'oils'].forEach(function (s) {
+        document.getElementById(s + '-grid').classList.toggle('hidden', s !== section);
+        document.getElementById('tab-' + s).classList.toggle('active', s === section);
+      });
+      try {
+        const url = new URL(window.location);
+        url.searchParams.set('type', section);
+        window.history.replaceState({}, '', url);
+      } catch (err) { /* ignore — some embedded/preview contexts block history writes */ }
+    }
+
+    (function initTabs() {
+      const available = ['watercolours', 'oils'].filter(function (s) {
+        return document.getElementById(s + '-grid').children.length > 0;
+      });
+      available.forEach(function (s) {
+        if (!document.getElementById(s + '-grid').children.length) {
+          document.getElementById('tab-' + s).style.display = 'none';
+        }
+      });
+      const requested = new URLSearchParams(window.location.search).get('type');
+      const initial = available.includes(requested) ? requested : (available[0] || 'watercolours');
+      showPaintingTab(initial);
+    })();
   </script>
 
 </body>
