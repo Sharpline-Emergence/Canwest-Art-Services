@@ -6,12 +6,13 @@
   <ul class="nav-links">
     <li><a href="index.html"{% if page.active == "home" %} class="active"{% endif %}>Home</a></li>
     <li class="has-sub">
-      <a href="products.html"{% if page.active == "products" %} class="active"{% endif %}>Products &#9662;</a>
+      <a href="canvases.html"{% if page.active == "canvases" %} class="active"{% endif %}>Canvases &#9662;</a>
       <ul class="sub-menu">
         {% assign product_items = site.data.nav.products | sort: "label" %}
         {% for item in product_items %}
         <li><a href="{{ item.url }}">{{ item.label }}</a></li>
         {% endfor %}
+        <li><a href="https://www.etsy.com/shop/BrimacombeStudio" target="_blank" rel="noopener">Art Cards</a></li>
       </ul>
     </li>
     <li class="has-sub">
@@ -31,7 +32,6 @@
     </li>
     <li><a href="services.html"{% if page.active == "services" %} class="active"{% endif %}>Services</a></li>
     <li><a href="workshops.html"{% if page.active == "workshops" %} class="active"{% endif %}>Workshops</a></li>
-    <li><a href="shop.html"{% if page.active == "shop" %} class="active"{% endif %}>Shop</a></li>
     <li><a href="announcements.html"{% if page.active == "announcements" %} class="active"{% endif %}>News</a></li>
     <li><a href="about.html"{% if page.active == "about" %} class="active"{% endif %}>About</a></li>
     <li><a href="contact.html"{% if page.active == "contact" %} class="active"{% endif %}>Contact</a></li>
