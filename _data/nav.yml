@@ -10,8 +10,10 @@ products:
     url: canvas-info.html
   - label: Master Product Listing
     url: master-product-listing.html
-  - label: Paintings
-    url: paintings.html
+  - label: Oil Paintings
+    url: paintings.html?type=oils
+  - label: Watercolour Paintings
+    url: paintings.html?type=watercolours
   - label: Watercolour Paper
     url: canvases.html#watercolourpaper
 
