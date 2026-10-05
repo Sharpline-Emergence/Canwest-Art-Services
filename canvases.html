@@ -30,6 +30,12 @@ active: products
 .price-table td.price { font-weight: 700; }
 .price-table tbody tr:nth-child(even) { background: #f7f4ef; }
 .price-table-note { font-size: 12px; color: #9a9080; font-family: Arial, sans-serif; margin-top: 1rem; }
+.reveal-toggle { display:inline-flex; align-items:center; gap:0.4rem; background:none; border:none; color:#7a6a50; font-family:Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:0.02em; cursor:pointer; padding:0.5rem 0; text-decoration:underline; margin-top:0.75rem; }
+.reveal-toggle:hover { color:#2a2820; }
+#shipping-policy-panel { display:none; max-width:640px; margin-top:0.5rem; padding:1.25rem 1.5rem; background:#fff; border:1px solid #d8d0c0; }
+#shipping-policy-panel h4 { font-family:Georgia,serif; font-weight:400; font-size:17px; color:#2a2820; margin:0 0 0.75rem; }
+#shipping-policy-panel p { font-family:Arial,sans-serif; font-size:13px; color:#5a5248; line-height:1.6; margin:0 0 0.75rem; }
+#shipping-policy-panel p:last-child { margin-bottom:0; }
 </style>
 </head>
 <body>
@@ -73,6 +79,14 @@ active: products
 </div>
 <p class="price-table-note">Prices subject to change. Contact us to place an order or to check current stock.</p>
 
+<button type="button" class="reveal-toggle" id="shipping-policy-toggle" aria-expanded="false" aria-controls="shipping-policy-panel" onclick="toggleShippingPolicy()">View shipping &amp; payment policy &#9662;</button>
+<div id="shipping-policy-panel">
+<h4>Shipping &amp; Payment Policy</h4>
+<p>Paints, brushes, and other small supplies: Orders over $150.00 (before taxes) are shipped free of charge to any Canadian provincial destination that has a post office.</p>
+<p>Shipping of canvases, cradled birch panels, watercolour paper, and other larger items by courier is highly subsidized to all areas. You would be informed of the exact cost prior to finalizing your order.</p>
+<p>Prepayment by e-transfer or credit card is required before shipping. Once your order is processed, you&rsquo;ll receive an invoice to review before submitting payment &mdash; we&rsquo;ll never charge a credit card without your prior approval. You&rsquo;ll be notified when your order ships.</p>
+</div>
+
 <div style="margin-top:2.5rem;">
 <h3 style="font-family:Georgia,serif; font-weight:400; color:#2a2820; margin-bottom:0.5rem;">Inquiries</h3>
 <p style="font-family:Arial,sans-serif; font-size:14px; color:#5a5248; margin-bottom:0;">Questions about a painting, an order, or anything else? Send us a message and we&rsquo;ll get back to you &mdash; or give us a call.</p>
@@ -113,6 +127,14 @@ Send Message
 </footer>
 
 <script>
+function toggleShippingPolicy() {
+  const panel = document.getElementById('shipping-policy-panel');
+  const btn = document.getElementById('shipping-policy-toggle');
+  const open = panel.style.display === 'block';
+  panel.style.display = open ? 'none' : 'block';
+  btn.setAttribute('aria-expanded', String(!open));
+  btn.innerHTML = open ? 'View shipping &amp; payment policy &#9662;' : 'Hide shipping &amp; payment policy &#9652;';
+}
 const canvasForm = document.getElementById('canvas-inquiry-form');
 canvasForm.addEventListener('submit', function(e) {
   e.preventDefault();
