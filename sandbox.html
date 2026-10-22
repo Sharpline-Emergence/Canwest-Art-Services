@@ -1,32 +1,502 @@
 ---
-active: products
+active: oilpaints
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandbox Preview | Canwest Art Services</title>
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandbox: Cranfield Artists' Oil Colours | Canwest Art Services</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Full range of Cranfield Artists' Oil Colours available from Canwest Art Services, authorized wholesale distributor for BC. 44 colours, retail and wholesale.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
+<style>
+.tube-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(190px, 1fr)); gap:1.25rem; margin-top:1.25rem; }
+.tube-card { background:#fff; border:0.5px solid #d8d0c0; overflow:hidden; display:flex; flex-direction:column; }
+.tube-photo { width:100%; height:220px; display:flex; align-items:center; justify-content:center; background:#fafafa; border-bottom:1px solid #e0d8c8; padding:0.75rem; }
+.tube-photo img { max-width:100%; max-height:100%; object-fit:contain; aspect-ratio: 2 / 3; width:auto; height:100%; }
+.tube-info { padding:0.75rem 0.9rem 0.9rem; display:flex; flex-direction:column; gap:0.35rem; flex:1; }
+.tube-info h4 { font-size:14px; font-weight:400; color:#2a2820; margin:0; font-family:Georgia,serif; line-height:1.3; }
+.tube-meta { font-size:11px; color:#9a9080; font-family:Arial,sans-serif; line-height:1.5; }
+.series-badge { display:inline-block; background:#f0ebe0; color:#7a6a50; font-size:10px; padding:0.1rem 0.4rem; font-family:Arial,sans-serif; letter-spacing:0.04em; width:fit-content; }
+.tube-price { font-size:16px; font-weight:700; color:#2a2820; font-family:Arial,sans-serif; margin-top:0.15rem; }
+
+.colour-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:1rem; margin-top:1.25rem; }
+.colour-card { background:#fff; border:0.5px solid #d8d0c0; overflow:hidden; }
+.colour-swatch { width:100%; height:80px; }
+.colour-info { padding:0.6rem 0.75rem; }
+.colour-info h4 { font-size:13px; font-weight:400; color:#2a2820; margin-bottom:0.2rem; font-family:Georgia,serif; line-height:1.3; }
+.colour-meta { font-size:11px; color:#9a9080; font-family:Arial,sans-serif; line-height:1.5; }
+
+.reveal-toggle { display:inline-flex; align-items:center; gap:0.4rem; background:none; border:none; color:#7a6a50; font-family:Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:0.02em; cursor:pointer; padding:0.5rem 0; text-decoration:underline; }
+.reveal-toggle:hover { color:#2a2820; }
+#swatch-chart-panel { display:none; margin-top:0.5rem; }
+
+.pricing-table-wrap { margin-top:1.25rem; overflow-x:auto; }
+.pricing-table { width:100%; border-collapse:collapse; font-family:Arial,sans-serif; font-size:13px; background:#fff; }
+.pricing-table th { text-align:left; background:#2a2820; color:#fff; padding:0.6rem 0.9rem; font-weight:600; letter-spacing:0.02em; font-size:12px; }
+.pricing-table td { padding:0.55rem 0.9rem; border-bottom:1px solid #e8e2d4; color:#2a2820; }
+.pricing-table tr:last-child td { border-bottom:none; }
+.pricing-table tr:nth-child(even) td { background:#f9f6ef; }
+.pricing-table .price-cell { text-align:right; font-weight:700; white-space:nowrap; }
+.pricing-note { font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin:0.75rem 0 0; }
+.contact-order-bar { background:#f0ebe0; border:1px solid #d8d0c0; padding:0.9rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+.contact-order-bar p { font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin:0; }
+</style>
+<link rel="preload" href="img/hero.webp" as="image" type="image/webp">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 </head>
 <body>
 
-  {% include nav.html %}
-
   <div class="sandbox-banner" style="background:#2a2820; color:#e8dfc8; font-family:Arial,sans-serif; font-size:12px; letter-spacing:0.06em; padding:0.6rem 1rem; text-align:center;">
-    <strong style="color:#c4a96b; text-transform:uppercase; letter-spacing:0.1em;">Sandbox preview</strong> &mdash; not linked in the site navigation and hidden from search engines.
+    <strong style="color:#c4a96b; text-transform:uppercase; letter-spacing:0.1em;">Sandbox preview</strong> &mdash; revised 40 mL Cranfield prices for proofreading. Not linked from the site and hidden from search engines.
   </div>
 
-  <div class="section">
-    <div class="section-label">Sandbox</div>
-    <h2>Nothing here yet</h2>
-    <p class="intro">This page is empty and ready for the next thing in progress.</p>
-  </div>
+<div class="cranfield-banner">
+<div class="cranfield-logo-box" style="width:auto; min-width:124px; height:146px; background:#f7f4ec; border:none; display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0.65rem; border-radius:4px;"><img src="img/cranfield-logo-strap.png" alt="Cranfield &mdash; Colour like no other" width="2217" height="1137" style="max-height:100%; max-width:100%; width:auto; height:auto; display:block;"></div>
+<div>
+<div class="cranfield-badge">Authorized distributor</div>
+<h2>Artists&rsquo; Oil Colours</h2>
+<p>Made by professionals for professionals. Formulated with the highest-grade pigments and cold-pressed linseed oil &mdash; exceptional permanence, buttery consistency, and true colour from tube to canvas. 44 colours across 5 series.</p>
+</div>
+</div>
 
-  <footer class="footer">
-    <p>&copy; 2026 Canwest Art Services &middot; Chilliwack, BC &middot; All rights reserved &middot; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; Site design by <a href="https://sharplinedigital.com" target="_blank" rel="noopener">SharplineDigital.com</a></p>
-  </footer>
+<div class="section">
+
+<div class="section-label">40 mL Tubes</div>
+<div id="tube-grid" class="tube-grid">
+<!-- Tube cards injected by script below -->
+</div>
+
+<div id="order-form-section" style="max-width:640px; margin-top:2.5rem;">
+<img src="img/cranfield-logo-strap.png" alt="Cranfield &mdash; Colour like no other" width="2217" height="1137" style="max-width:220px; width:100%; height:auto; display:block; margin-bottom:1.25rem;">
+<h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Order 40 mL Tubes</h3>
+<p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Set quantities for the colours you&rsquo;d like below, then fill in your details. We&rsquo;ll follow up to confirm and arrange payment.</p>
+
+<form id="cranfield-order-form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="a0dc08e3-731c-4219-b6e4-4530e5ca5552">
+<input type="hidden" name="subject" value="[SANDBOX TEST] Cranfield Artists' Oils Order &mdash; canwestart.ca">
+<input type="checkbox" name="botcheck" style="display:none;">
+<input type="hidden" name="email" id="replyto-field">
+
+<div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Full Name*
+<input type="text" name="Full Name" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Email*
+<input type="email" name="Email" id="customer-email-field" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Phone
+<input type="tel" name="Phone" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">PST Number <span style="color:#9a9080; font-weight:normal;">(if applicable)</span>
+<input type="text" name="PST Number" style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+</div>
+
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Address*
+<input type="text" name="Address" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+
+<div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem;">
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">City*
+<input type="text" name="City" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+<label style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">Province / State*
+<input type="text" name="Province/State" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem;">
+</label>
+</div>
+
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-top:1rem;">Postal Code*
+<input type="text" name="Postal Code" required style="width:100%; padding:0.5rem; border:1px solid #d8d0c0; margin-top:0.3rem; max-width:200px;">
+</label>
+
+<p style="font-size:12px; color:#9a9080; font-family:Arial,sans-serif; margin-top:0.5rem;">If you provide a PST number, sales tax will not be added to your order confirmation.</p>
+
+<div style="margin-top:1.5rem;">
+<label style="display:block; font-family:Arial,sans-serif; font-size:13px; color:#5a5248; margin-bottom:0.4rem;">Colours &amp; Quantities* <span style="color:#9a9080; font-weight:normal;">&mdash; scroll down to view complete catalogue</span></label>
+<div style="border:1px solid #d8d0c0; max-height:340px; overflow-y:auto; background:#fff;">
+<div id="order-rows"></div>
+</div>
+<div id="order-summary" style="margin-top:0.6rem; padding:0.65rem 0.9rem; background:#f7f4ec; border:1px solid #e0d8c8; font-family:Arial,sans-serif; font-size:13px; color:#5a5248;">No colours selected yet.</div>
+<input type="hidden" id="order-summary-field" name="Colours and Quantities" required>
+<p style="font-size:12px; color:#9a9080; font-family:Arial,sans-serif; margin-top:0.5rem;">Prices shown are per 40 mL tube. Taxes and shipping will be calculated and confirmed on your order.</p>
+</div>
+
+<button type="button" class="reveal-toggle" style="margin-top:1rem; padding:0;" onclick="openShippingModal()">View shipping &amp; payment policy</button>
+<br>
+<button type="submit" id="submit-order-btn" class="btn-primary" style="margin-top:1rem; border:none; cursor:pointer;">Submit Order</button>
+</form>
+
+<div id="order-success-message" style="display:none; margin-top:1.5rem; padding:1.25rem; background:#eef4ec; border:1px solid #b8d4b0; font-family:Arial,sans-serif;">
+<p style="margin:0; font-size:14px; color:#2a2820; font-weight:700;">Order received &mdash; thank you!</p>
+<p style="margin:0.4rem 0 0; font-size:13px; color:#5a5248; line-height:1.6;">We&rsquo;ve received your order and will follow up by email to confirm pricing, shipping, and payment. If you don&rsquo;t hear from us within 1&ndash;2 business days, please call or text 604-793-5026.</p>
+</div>
+
+</div>
+
+<div id="shipping-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(42,40,32,0.55); z-index:100; align-items:center; justify-content:center; padding:1.5rem;">
+<div style="background:#fff; max-width:560px; width:100%; max-height:85vh; overflow-y:auto; padding:1.75rem; position:relative; border:1px solid #d8d0c0;">
+<button type="button" onclick="closeShippingModal()" aria-label="Close" style="position:absolute; top:0.9rem; right:0.9rem; background:none; border:none; font-size:20px; line-height:1; cursor:pointer; color:#9a9080;">&times;</button>
+<h3 style="font-family:Georgia,serif; color:#2a2820; margin:0 0 1rem;">Shipping &amp; Payment Policy</h3>
+<p style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248; line-height:1.6; margin:0 0 0.75rem;">Paints, brushes, and other small supplies: Orders over $150.00 (before taxes) are shipped free of charge to any Canadian provincial destination that has a post office.</p>
+<p style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248; line-height:1.6; margin:0 0 0.75rem;">Shipping of canvases, cradled birch panels, watercolour paper, and other larger items by courier is highly subsidized to all areas. You would be informed of the exact cost prior to finalizing your order.</p>
+<p style="font-family:Arial,sans-serif; font-size:13px; color:#5a5248; line-height:1.6; margin:0 0 0.75rem;">Prepayment by e-transfer or credit card is required before shipping. Once your order is processed, you&rsquo;ll receive an invoice to review before submitting payment. We will never charge a credit card without your prior approval. You&rsquo;ll be notified when your order ships.</p>
+<p style="font-family:Arial,sans-serif; font-size:12px; color:#9a9080; line-height:1.5; margin:0 0 1rem;">Closing this window will submit your order.</p>
+<button type="button" onclick="acknowledgeAndSubmit()" class="btn-primary" style="margin-top:0.5rem; border:none; cursor:pointer;">Close &amp; Submit Order</button>
+</div>
+</div>
+
+<button type="button" class="reveal-toggle" id="swatch-toggle" onclick="toggleSwatchChart()">
+<i class="ti ti-palette" aria-hidden="true"></i> View colours by series &#9662;
+</button>
+
+<div id="swatch-chart-panel">
+
+<div class="section-label">Whites</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#f5f2ec;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Titanium White (Linseed)</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f5f2ec;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Titanium White (Safflower)</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f0ede6;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Zinc White</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#ede6d4;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Unbleached Titanium White</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Yellows</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#f5e020;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Yellow Lemon Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f2c200;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Yellow Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#e8a800;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Yellow Deep Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f0d060;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Yellow Lake</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#d4a820;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Indian Yellow Hue</h4><div class="colour-meta">Transparent &middot; ASTM I&ndash;II</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f0e060;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Bright Yellow Lake</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II</div></div></div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Oranges &amp; Reds</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#e86010;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Orange Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#d83020;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Napthol Vermillion</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#d84030;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Light Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#c02818;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#901818;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Deep Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#a01830;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Alizarin Crimson</h4><div class="colour-meta">Transparent &middot; ASTM II</div></div></div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Pinks &amp; Violets</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#e880a0;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Brilliant Pink</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#c02870;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Quinacridone Magenta</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#785090;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Manganese Violet</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#604880;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Ultramarine Violet</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#4a2878;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Violet Dioxazine</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#1a1840;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Indigo</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Blues</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#1840a0;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>French Ultramarine Blue Red Shade</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#1060c0;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Phthalo Blue Green Shade</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#1050a8;"></div><div class="colour-info"><span class="series-badge">Series 5</span><h4>Cobalt Blue Genuine</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#5090d0;"></div><div class="colour-info"><span class="series-badge">Series 5</span><h4>Cerulean Blue Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#4080c8;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>King&rsquo;s Blue Light</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#1840a0;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>King&rsquo;s Blue Deep</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#0a2060;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Prussian Blue</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Greens</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#007858;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Viridian Green</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#008060;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Emerald Green</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#006840;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Phthalo Green</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#3a6838;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Chromium Oxide Green</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#486830;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Sap Green</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#2898a8;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Phthalo Turquoise</h4><div class="colour-meta">Opaque &middot; ASTM I</div></div></div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Earth tones</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#988030;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow Ochre</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#285830;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Terre Verte</h4><div class="colour-meta">Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#b06820;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Sienna</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#901810;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Sienna</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#604018;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#401808;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+</div>
+
+<hr class="divider">
+
+<div class="section-label">Blacks &amp; Greys</div>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#303040;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Payne&rsquo;s Grey</h4><div class="colour-meta">Semi Transparent &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#181810;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Ivory Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#101010;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Lamp Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I</div></div></div>
+</div>
+
+</div><!-- /swatch-chart-panel -->
+
+<hr class="divider" style="margin-top:2.5rem;">
+
+<div class="section-label">225 mL Tubes</div>
+
+<div class="pricing-table-wrap">
+<table class="pricing-table">
+<thead>
+<tr><th>Colour</th><th class="price-cell">225 mL Price</th></tr>
+</thead>
+<tbody>
+<tr><td>Titanium White (Safflower)</td><td class="price-cell">$57.00</td></tr>
+<tr><td>Titanium White (Linseed)</td><td class="price-cell">$57.00</td></tr>
+<tr><td>Bright Yellow Lake</td><td class="price-cell">$57.00</td></tr>
+<tr><td>French Ultramarine Blue (Red Shade)</td><td class="price-cell">$57.00</td></tr>
+<tr><td>Ivory Black</td><td class="price-cell">$57.00</td></tr>
+<tr><td>Phthalo Blue (Green Shade)</td><td class="price-cell">$72.00</td></tr>
+<tr><td>Alizarin Crimson</td><td class="price-cell">$94.00</td></tr>
+<tr><td>Cadmium Red Genuine</td><td class="price-cell">$155.00</td></tr>
+<tr><td>Cadmium Yellow Genuine</td><td class="price-cell">$155.00</td></tr>
+<tr><td>Cerulean Blue Genuine</td><td class="price-cell">$205.00</td></tr>
+</tbody>
+</table>
+</div>
+<p class="pricing-note">These 10 colours are regularly stocked in the 225 mL size. All other colours are available as special orders &mdash; see pricing by series below.</p>
+
+<div class="pricing-table-wrap" style="margin-top:1.5rem;">
+<table class="pricing-table">
+<thead>
+<tr><th>Series</th><th class="price-cell">225 mL Special Order Price</th></tr>
+</thead>
+<tbody>
+<tr><td>Series 1</td><td class="price-cell">$57.00</td></tr>
+<tr><td>Series 2</td><td class="price-cell">$72.00</td></tr>
+<tr><td>Series 3</td><td class="price-cell">$94.00</td></tr>
+<tr><td>Series 4</td><td class="price-cell">$155.00</td></tr>
+<tr><td>Series 5</td><td class="price-cell">$205.00</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="contact-order-bar">
+<p><strong>To order the 225 mL size</strong> &mdash; email canwestart@shaw.ca, phone, or text 604-793-5026.</p>
+</div>
+
+<div class="wholesale-cta" style="margin-top:2.5rem;">
+<div>
+<strong>Limited Studio Oils available</strong>
+<p>We have a limited selection of Cranfield Studio Oils. Contact us for further information.</p>
+</div>
+</div>
+
+</div>
+
+<footer class="footer">
+<p>&copy; 2026 Canwest Art Services &middot; Chilliwack, BC &middot; All rights reserved</p>
+</footer>
+
+<script>
+// Cranfield Artists' Oils — 40mL price data (source: Errol-confirmed pricing sheet)
+const CRANFIELD_TUBES = [
+  {cao:"CAO1", name:"Alizarin Crimson", code:"RDCK6019", series:"Series 3", price:29.99},
+  {cao:"CAO2", name:"Bright Yellow Lake", code:"YLCK9029", series:"Series 1", price:17.99},
+  {cao:"CAO3", name:"Brilliant Pink", code:"RDCK6047", series:"Series 2", price:22.99},
+  {cao:"CAO4", name:"Burnt Sienna", code:"BRCK3007", series:"Series 1", price:17.99},
+  {cao:"CAO5", name:"Burnt Umber", code:"BRCK3020", series:"Series 1", price:17.99},
+  {cao:"CAO6", name:"Cadmium Orange Genuine", code:"ORCK5006", series:"Series 4", price:47.99},
+  {cao:"CAO7", name:"Cadmium Red Deep Genuine", code:"RDCK6041", series:"Series 4", price:48.99},
+  {cao:"CAO8", name:"Cadmium Red Genuine", code:"RDCK6013", series:"Series 4", price:48.99},
+  {cao:"CAO9", name:"Cadmium Red Light Genuine", code:"RDCK6042", series:"Series 4", price:48.99},
+  {cao:"CAO10", name:"Cadmium Yellow Deep Genuine", code:"YLCK9020", series:"Series 4", price:45.99},
+  {cao:"CAO11", name:"Cadmium Yellow Genuine", code:"YLCK9018", series:"Series 4", price:45.99},
+  {cao:"CAO12", name:"Cadmium Yellow Lemon Genuine", code:"YLCK9015", series:"Series 4", price:45.99},
+  {cao:"CAO13", name:"Cerulean Blue Genuine", code:"BLCK2019", series:"Series 5", price:55.99},
+  {cao:"CAO14", name:"Chromium Oxide Green", code:"GRCK4023", series:"Series 3", price:29.99},
+  {cao:"CAO15", name:"Cobalt Blue Genuine", code:"BLCK2017", series:"Series 5", price:55.99},
+  {cao:"CAO16", name:"Emerald Green", code:"GRCK4029", series:"Series 2", price:22.99},
+  {cao:"CAO17", name:"French Ultramarine (Red Shade)", code:"BLCK2015", series:"Series 1", price:21.99},
+  {cao:"CAO18", name:"Indian Yellow Hue", code:"YLCK9035", series:"Series 2", price:21.99},
+  {cao:"CAO19", name:"Indigo", code:"BLCK2038", series:"Series 2", price:29.99},
+  {cao:"CAO20", name:"Ivory Black", code:"BKCK1005", series:"Series 1", price:17.99},
+  {cao:"CAO21", name:"King's Blue Deep", code:"BLCK2037", series:"Series 2", price:22.99},
+  {cao:"CAO22", name:"King's Blue Light", code:"BLCK2033", series:"Series 2", price:22.99},
+  {cao:"CAO23", name:"Lamp Black", code:"BKCK1009", series:"Series 1", price:17.99},
+  {cao:"CAO24", name:"Manganese Violet", code:"VLCK7016", series:"Series 3", price:29.99},
+  {cao:"CAO25", name:"Napthol Vermillion", code:"RDCK6014", series:"Series 3", price:29.99},
+  {cao:"CAO26", name:"Payne's Grey", code:"WTCK8074", series:"Series 1", price:22.99},
+  {cao:"CAO27", name:"Phthalo Blue (Green Shade)", code:"BLCK2014", series:"Series 2", price:21.99},
+  {cao:"CAO28", name:"Phthalo Green", code:"GRCK4007", series:"Series 2", price:21.99},
+  {cao:"CAO29", name:"Phthalo Turquoise", code:"BLCK2034", series:"Series 2", price:22.99},
+  {cao:"CAO30", name:"Prussian Blue", code:"BLCK2021", series:"Series 1", price:22.99},
+  {cao:"CAO31", name:"Quinacridone Magenta", code:"RDCK6030", series:"Series 3", price:29.99},
+  {cao:"CAO32", name:"Raw Sienna", code:"BRCK3006", series:"Series 1", price:17.99},
+  {cao:"CAO33", name:"Raw Umber", code:"BRCK3019", series:"Series 1", price:17.99},
+  {cao:"CAO34", name:"Sap Green", code:"GRCK4027", series:"Series 2", price:22.99},
+  {cao:"CAO35", name:"Terre Verte", code:"GRCK4006", series:"Series 1", price:22.99},
+  {cao:"CAO36", name:"Titanium White (Linseed)", code:"WTCK8064", series:"Series 1", price:17.99},
+  {cao:"CAO37", name:"Titanium White (Safflower)", code:"WTCK8049", series:"Series 1", price:17.99},
+  {cao:"CAO38", name:"Ultramarine Violet", code:"VLCK7014", series:"Series 2", price:21.99},
+  {cao:"CAO39", name:"Unbleached Titanium White", code:"WTCK8077", series:"Series 1", price:17.99},
+  {cao:"CAO40", name:"Violet Dioxazine", code:"VLCK7008", series:"Series 3", price:29.99},
+  {cao:"CAO41", name:"Viridian Green", code:"GRCK4025", series:"Series 4", price:44.99},
+  {cao:"CAO42", name:"Yellow Lake", code:"YLCK9017", series:"Series 2", price:21.99},
+  {cao:"CAO43", name:"Yellow Ochre", code:"YLCK9023", series:"Series 1", price:17.99},
+  {cao:"CAO44", name:"Zinc White", code:"WTCK8050", series:"Series 1", price:17.99}
+];
+
+const grid = document.getElementById('tube-grid');
+
+function money(n) { return '$' + n.toFixed(2); }
+
+CRANFIELD_TUBES.forEach(t => {
+  const card = document.createElement('div');
+  card.className = 'tube-card';
+  card.innerHTML = `
+    <div class="tube-photo"><img src="img/oils/${t.cao}-40ml.jpg" alt="${t.name} 40mL tube" loading="lazy" width="500" height="750"></div>
+    <div class="tube-info">
+      <span class="series-badge">${t.series}</span>
+      <h4>${t.name}</h4>
+      <div class="tube-meta">${t.code} &middot; 40 mL &middot; ${t.cao}</div>
+      <div class="tube-price">${money(t.price)}</div>
+    </div>`;
+  grid.appendChild(card);
+});
+
+const orderRows = document.getElementById('order-rows');
+const orderQty = {};
+
+CRANFIELD_TUBES.forEach((t, i) => {
+  orderQty[t.cao] = 0;
+  const row = document.createElement('div');
+  row.style.cssText = 'display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0.55rem 0.9rem; font-family:Arial,sans-serif;' + (i < CRANFIELD_TUBES.length - 1 ? ' border-bottom:0.5px solid #e8e2d4;' : '');
+  row.innerHTML = `
+    <div style="min-width:0;">
+      <div style="font-size:13px; color:#2a2820;">${t.name}</div>
+      <div style="font-size:11px; color:#9a9080;">${t.cao} &middot; ${money(t.price)}</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+      <button type="button" class="qty-btn" data-cao="${t.cao}" data-dir="-1" style="width:26px; height:26px;">&minus;</button>
+      <span id="oq-${t.cao}" style="min-width:20px; text-align:center; font-size:13px;">0</span>
+      <button type="button" class="qty-btn" data-cao="${t.cao}" data-dir="1" style="width:26px; height:26px;">&plus;</button>
+    </div>`;
+  orderRows.appendChild(row);
+});
+
+orderRows.addEventListener('click', e => {
+  const btn = e.target.closest('button[data-cao]');
+  if (!btn) return;
+  const cao = btn.dataset.cao;
+  const dir = parseInt(btn.dataset.dir, 10);
+  orderQty[cao] = Math.max(0, orderQty[cao] + dir);
+  document.getElementById('oq-' + cao).textContent = orderQty[cao];
+  updateOrderSummary();
+});
+
+function updateOrderSummary() {
+  const chosen = CRANFIELD_TUBES.filter(t => orderQty[t.cao] > 0);
+  const summaryEl = document.getElementById('order-summary');
+  const fieldEl = document.getElementById('order-summary-field');
+  if (chosen.length === 0) {
+    summaryEl.textContent = 'No colours selected yet.';
+    fieldEl.value = '';
+    return;
+  }
+  let total = 0;
+  const lines = chosen.map(t => {
+    const lineTotal = t.price * orderQty[t.cao];
+    total += lineTotal;
+    return `${t.cao} ${t.name} \u00d7${orderQty[t.cao]} \u2014 ${money(lineTotal)}`;
+  });
+  const subtotalLine = `Subtotal: ${money(total)} (excludes tax & shipping)`;
+  summaryEl.innerHTML = lines.map(l => `<div>${l}</div>`).join('') +
+    `<div style="margin-top:0.5rem; font-weight:700;">${subtotalLine}</div>`;
+  fieldEl.value = lines.join('\n') + '\n\n' + subtotalLine;
+}
+
+let shippingPolicyViewed = false;
+let pendingSubmit = false;
+
+function openShippingModal() {
+  document.getElementById('shipping-modal-overlay').style.display = 'flex';
+}
+
+function closeShippingModal() {
+  document.getElementById('shipping-modal-overlay').style.display = 'none';
+  pendingSubmit = false;
+}
+
+function acknowledgeAndSubmit() {
+  shippingPolicyViewed = true;
+  document.getElementById('shipping-modal-overlay').style.display = 'none';
+  submitOrderForm();
+}
+
+document.getElementById('shipping-modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeShippingModal();
+});
+
+const orderForm = document.getElementById('cranfield-order-form');
+
+orderForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('replyto-field').value = document.getElementById('customer-email-field').value;
+  const fieldEl = document.getElementById('order-summary-field');
+  if (!fieldEl.value) {
+    alert('Please select at least one colour and quantity before submitting your order.');
+    return;
+  }
+  if (!shippingPolicyViewed) {
+    pendingSubmit = true;
+    openShippingModal();
+    return;
+  }
+  submitOrderForm();
+});
+
+function submitOrderForm() {
+  const btn = document.getElementById('submit-order-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending\u2026';
+  const formData = new FormData(orderForm);
+  fetch(orderForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        orderForm.style.display = 'none';
+        document.getElementById('order-success-message').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Submit Order';
+        alert('Something went wrong sending your order. Please try again, or call/text 604-793-5026.');
+      }
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = 'Submit Order';
+      alert('Something went wrong sending your order. Please try again, or call/text 604-793-5026.');
+    });
+}
+
+function toggleSwatchChart() {
+  const panel = document.getElementById('swatch-chart-panel');
+  const btn = document.getElementById('swatch-toggle');
+  const isOpen = panel.style.display === 'block';
+  panel.style.display = isOpen ? 'none' : 'block';
+  btn.innerHTML = isOpen
+    ? '<i class="ti ti-palette" aria-hidden="true"></i> View colours by series &#9662;'
+    : '<i class="ti ti-palette" aria-hidden="true"></i> Hide colours by series &#9652;';
+}
+</script>
 
 </body>
 </html>
