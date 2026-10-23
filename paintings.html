@@ -275,8 +275,41 @@ active: products
       margin-top: 1.1rem;
     }
 
+    /* ---- OIL PRICE LIST (oils tab only) ---- */
+    .oil-pricing { margin-top: 2.5rem; font-family: Arial, sans-serif; }
+    .oil-pricing.hidden { display: none; }
+    .price-list-toggle {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin: 0 auto; background: none; border: none; padding: 0.4rem 0;
+      font: inherit; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: 700; color: #5a5248; cursor: pointer;
+    }
+    .price-list-toggle:hover { color: #2a2820; }
+    .price-list-radio {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 1.5px solid #c4a96b; position: relative; flex-shrink: 0;
+    }
+    .price-list-toggle[aria-expanded="true"] .price-list-radio::after {
+      content: ""; position: absolute; inset: 3px; border-radius: 50%; background: #c4a96b;
+    }
+    .price-list-panel {
+      display: none; margin-top: 1rem; padding: 1.5rem;
+      border: 0.5px solid #d8d0c0; background: #faf7f0;
+    }
+    .price-list-panel.open { display: block; }
+    .oil-pricing-intro { font-size: 13px; color: #5a5248; line-height: 1.6; margin: 0 0 0.8rem; }
+    .full-list { margin-top: 1rem; columns: 4 150px; column-gap: 1.75rem; font-size: 13px; }
+    .full-list div {
+      display: flex; justify-content: space-between; padding: 0.25rem 0;
+      border-bottom: 1px dotted #e4dccb; break-inside: avoid; color: #5a5248;
+    }
+    .full-list div span:last-child { color: #2a2820; }
+    .full-list .full-list-head { font-weight: 700; color: #2a2820; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .price-fineprint { font-size: 12px; color: #9a9080; margin: 1rem 0 0; }
+
     @media (max-width: 600px) {
       .paintings-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .price-list-panel { padding: 1.1rem; }
     }
   </style>
 </head>
@@ -330,6 +363,26 @@ active: products
       </button>
       {% endif %}
       {% endfor %}
+    </div>
+
+    <!-- OIL PRICE LIST — data in _data/oil_price_list.yml -->
+    <div class="oil-pricing hidden" id="oil-pricing">
+      <button type="button" class="price-list-toggle" id="full-list-toggle" aria-expanded="false" aria-controls="price-list-panel" onclick="toggleFullPriceList()">
+        <span class="price-list-radio" aria-hidden="true"></span>
+        <span>View oil painting price list 2026&ndash;2027</span>
+      </button>
+
+      <div class="price-list-panel" id="price-list-panel">
+        <p class="oil-pricing-intro">Oil paintings are priced by <strong>united inches</strong> &mdash; the width plus the length of the canvas. Find the united inches in the list below; the price is shown opposite.</p>
+        <p class="oil-pricing-intro">For example, a 14 &times; 20 painting is 34 united inches, so it is $1,350. An 18 &times; 24 is 42 united inches ($1,895), and a 24 &times; 48 is 72 united inches ($4,400).</p>
+        <div class="full-list">
+          <div class="full-list-head"><span>United inches</span><span>Price</span></div>
+          {% for row in site.data.oil_price_list %}
+          <div><span>{{ row.united_inches }}</span><span>${{ row.price }}</span></div>
+          {% endfor %}
+        </div>
+        <p class="price-fineprint">Prices exclude taxes and shipping.</p>
+      </div>
     </div>
 
     <div style="text-align:center; margin-top:2.5rem;">
@@ -416,6 +469,14 @@ active: products
       if (e.key === 'Escape') closePaintingModal();
     });
 
+    // ---- Oil price list toggle ----
+    function toggleFullPriceList() {
+      const panel = document.getElementById('price-list-panel');
+      const btn = document.getElementById('full-list-toggle');
+      const open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
     // Tabs: show one section's grid at a time. A section with no rendered
     // cards (e.g. every entry still missing a photo) is skipped entirely.
     function showPaintingTab(section) {
@@ -423,6 +484,7 @@ active: products
         document.getElementById(s + '-grid').classList.toggle('hidden', s !== section);
         document.getElementById('tab-' + s).classList.toggle('active', s === section);
       });
+      document.getElementById('oil-pricing').classList.toggle('hidden', section !== 'oils');
       try {
         const url = new URL(window.location);
         url.searchParams.set('type', section);
