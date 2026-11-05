@@ -57,6 +57,10 @@ active: oilpaints
 .range-switch { margin-top:2.5rem; background:#2a2820; color:#e8dfc8; padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-family:Arial,sans-serif; }
 .range-switch strong { font-family:Georgia,serif; font-size:17px; font-weight:400; color:#fff; }
 .range-switch p { font-size:13px; color:#c8bfa8; margin:0.3rem 0 0; max-width:560px; line-height:1.55; }
+.series-table td { background:#fff !important; border-bottom:none; }
+.series-table .sub-row td { padding-top:0; padding-bottom:0.7rem; font-size:12px; color:#5a5248; line-height:1.55; border-bottom:1px solid #e8e2d4; }
+.series-table .sub-row span { color:#9a9080; font-weight:600; }
+.series-table tr:last-child td { border-bottom:none; }
 .range-tabs { display:flex; gap:0.5rem; flex-wrap:wrap; border-bottom:2px solid #d8d0c0; margin-bottom:1.75rem; }
 .range-tab { font-family:Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:0.02em; padding:0.75rem 1.4rem; background:#f0ebe0; color:#5a5248; border:1px solid #d8d0c0; border-bottom:none; cursor:pointer; margin-bottom:-2px; }
 .range-tab:hover { color:#2a2820; background:#e8e0d0; }
@@ -466,19 +470,23 @@ active: oilpaints
 <div class="section-label">Studio Oils Price List &mdash; as of November 2026</div>
 
 <div class="pricing-table-wrap">
-<table class="pricing-table">
+<table class="pricing-table series-table">
 <thead>
 <tr><th>Series</th><th class="price-cell">60 mL Tube</th><th class="price-cell">225 mL Tube</th></tr>
 </thead>
 <tbody>
-<tr><td>Series 1</td><td class="price-cell">$13.95</td><td class="price-cell">$39.95</td></tr>
-<tr><td>Series 2</td><td class="price-cell">$17.95</td><td class="price-cell">$45.95</td></tr>
-<tr><td>Series 3</td><td class="price-cell">$23.55</td><td class="price-cell">$63.25</td></tr>
-<tr><td>Series 4</td><td class="price-cell">$31.85</td><td class="price-cell">$79.50</td></tr>
+<tr><td style="white-space:nowrap;"><strong>Series 1</strong></td><td class="price-cell">$13.95</td><td class="price-cell">$39.95</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> All Series 1 colours</td></tr>
+<tr><td style="white-space:nowrap;"><strong>Series 2</strong></td><td class="price-cell">$17.95</td><td class="price-cell">$45.95</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> Alizarin Crimson, Red, Magenta, Indian Yellow Hue</td></tr>
+<tr><td style="white-space:nowrap;"><strong>Series 3</strong></td><td class="price-cell">$23.55</td><td class="price-cell">$63.25</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> Opaque Oxide of Chromium, Rose Madder Quinacridone, Crimson, Cadmium Yellow Genuine, Cadmium Yellow Deep Genuine, Cadmium Yellow Pale Genuine, Primrose Yellow</td></tr>
+<tr><td style="white-space:nowrap;"><strong>Series 4</strong></td><td class="price-cell">$31.85</td><td class="price-cell">$79.50</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> Cadmium Red Genuine</td></tr>
 </tbody>
 </table>
 </div>
-<p class="pricing-note">Every Studio Oils colour is available in 60 mL and 225 mL tubes. Find a colour&rsquo;s series on its swatch above.</p>
+<p class="pricing-note">60 mL tubes are available in every Studio Oils colour. Find a colour&rsquo;s series on its swatch above.</p>
 
 <div class="pricing-table-wrap" style="margin-top:1.5rem;">
 <table class="pricing-table">
