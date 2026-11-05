@@ -48,6 +48,15 @@ active: oilpaints
 .studio-heading p { font-size:14px; color:#5a5248; font-family:Arial,sans-serif; line-height:1.6; margin:0; max-width:720px; }
 .studio-cat { font-family:Georgia,serif; font-size:15px; font-weight:400; color:#7a6a50; margin:1rem 0 0; }
 #studio-oils { scroll-margin-top:90px; }
+.tube-grid-wrap { position:relative; }
+.tube-grid.collapsed { max-height:1010px; overflow:hidden; }
+.tube-grid-fade { position:absolute; left:0; right:0; bottom:0; height:110px; background:linear-gradient(to bottom, rgba(247,244,239,0), #f7f4ef 85%); pointer-events:none; display:none; }
+.tube-grid-fade.show { display:block; }
+.show-more-btn { display:flex; align-items:center; gap:0.4rem; margin:1rem auto 0; background:#fff; border:1px solid #d8d0c0; color:#2a2820; font-family:Arial,sans-serif; font-size:13px; font-weight:600; padding:0.55rem 1.25rem; cursor:pointer; letter-spacing:0.02em; }
+.show-more-btn:hover { background:#f7f4ec; }
+.range-switch { margin-top:2.5rem; background:#2a2820; color:#e8dfc8; padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-family:Arial,sans-serif; }
+.range-switch strong { font-family:Georgia,serif; font-size:17px; font-weight:400; color:#fff; }
+.range-switch p { font-size:13px; color:#c8bfa8; margin:0.3rem 0 0; max-width:560px; line-height:1.55; }
 .range-tabs { display:flex; gap:0.5rem; flex-wrap:wrap; border-bottom:2px solid #d8d0c0; margin-bottom:1.75rem; }
 .range-tab { font-family:Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:0.02em; padding:0.75rem 1.4rem; background:#f0ebe0; color:#5a5248; border:1px solid #d8d0c0; border-bottom:none; cursor:pointer; margin-bottom:-2px; }
 .range-tab:hover { color:#2a2820; background:#e8e0d0; }
@@ -104,9 +113,13 @@ active: oilpaints
 <div class="section-label" style="margin:0;">40 mL Tubes</div>
 <button type="button" class="btn-primary order-open-btn" onclick="openOrderForm()"><i class="ti ti-shopping-cart" aria-hidden="true"></i> Order Artists&rsquo; Oils</button>
 </div>
-<div id="tube-grid" class="tube-grid">
+<div class="tube-grid-wrap">
+<div id="tube-grid" class="tube-grid collapsed">
 <!-- Tube cards injected by script below -->
 </div>
+<div id="fade-tube-grid" class="tube-grid-fade show"></div>
+</div>
+<button type="button" class="show-more-btn" id="toggle-tube-grid" onclick="toggleGrid('tube-grid')">View more Artists&rsquo; Oils colours &#9662;</button>
 
 <div class="order-cta">
 <p><strong>Ready to order Artists&rsquo; Oils?</strong> Choose your colours and quantities on our order form.</p>
@@ -336,6 +349,14 @@ active: oilpaints
 <a href="contact.html" class="btn-sm"><i class="ti ti-mail" aria-hidden="true"></i> Contact us</a>
 </div>
 
+<div class="range-switch">
+<div>
+<strong>Also from Cranfield: Studio Oils</strong>
+<p>An affordable range for students and everyday studio work &mdash; 47 colours, 60 mL tubes from $13.95, plus 225 mL tubes, tins and a starter set.</p>
+</div>
+<button type="button" class="btn-primary order-open-btn" onclick="showRange('studio', true)">View Studio Oils &rarr;</button>
+</div>
+
 </div><!-- /panel-artists -->
 
 <div id="panel-studio" class="range-panel" role="tabpanel" aria-labelledby="tab-studio" hidden>
@@ -488,6 +509,14 @@ active: oilpaints
 <div class="contact-order-bar">
 <p><strong>To order Studio Oils</strong> &mdash; email <a href="mailto:canwestart@shaw.ca">canwestart@shaw.ca</a>, phone, or text 604-793-5026.</p>
 <a href="contact.html" class="btn-sm"><i class="ti ti-mail" aria-hidden="true"></i> Contact us</a>
+</div>
+
+<div class="range-switch">
+<div>
+<strong>Looking for professional-grade colours?</strong>
+<p>Cranfield Artists&rsquo; Oils &mdash; 44 colours in 40 mL tubes, available to order online.</p>
+</div>
+<button type="button" class="btn-primary order-open-btn" onclick="showRange('artists', true)">&larr; View Artists&rsquo; Oils</button>
 </div>
 
 </div><!-- /panel-studio -->
@@ -678,6 +707,22 @@ function submitOrderForm() {
       btn.textContent = 'Submit Order';
       alert('Something went wrong sending your order. Please try again, or call/text 604-793-5026.');
     });
+}
+
+function toggleGrid(gridId) {
+  const grid = document.getElementById(gridId);
+  const fade = document.getElementById('fade-' + gridId);
+  const btn = document.getElementById('toggle-' + gridId);
+  if (grid.classList.contains('collapsed')) {
+    grid.classList.remove('collapsed');
+    fade.classList.remove('show');
+    btn.innerHTML = 'Show fewer colours &#9652;';
+  } else {
+    grid.classList.add('collapsed');
+    fade.classList.add('show');
+    btn.innerHTML = 'View more Artists&rsquo; Oils colours &#9662;';
+    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function showRange(which, scroll) {
