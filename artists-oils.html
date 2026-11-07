@@ -6,8 +6,8 @@ active: oilpaints
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cranfield Artists' Oil Colours | Canwest Art Services</title>
-<meta name="description" content="Full range of Cranfield Artists' Oil Colours available from Canwest Art Services, authorized wholesale distributor for BC. 44 colours, retail and wholesale.">
+<title>Cranfield Oil Colours | Canwest Art Services</title>
+<meta name="description" content="Full range of Cranfield Artists' Oil Colours available from Canwest Art Services, authorized wholesale distributor for BC. 44 colours, retail and wholesale, plus the Cranfield Studio Oils range.">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
@@ -43,6 +43,39 @@ active: oilpaints
 .pricing-note { font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin:0.75rem 0 0; }
 .contact-order-bar { background:#f0ebe0; border:1px solid #d8d0c0; padding:0.9rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
 .contact-order-bar p { font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin:0; }
+.studio-heading h2 { font-family:Georgia,serif; color:#2a2820; margin:0.5rem 0 0.4rem; }
+.studio-heading p { font-size:14px; color:#5a5248; font-family:Arial,sans-serif; line-height:1.6; margin:0; max-width:720px; }
+.studio-cat { font-family:Georgia,serif; font-size:15px; font-weight:400; color:#7a6a50; margin:1rem 0 0; }
+#studio-oils { scroll-margin-top:90px; }
+.tube-grid-wrap { position:relative; }
+.tube-grid.collapsed { max-height:1010px; overflow:hidden; }
+.tube-grid-fade { position:absolute; left:0; right:0; bottom:0; height:110px; background:linear-gradient(to bottom, rgba(247,244,239,0), #f7f4ef 85%); pointer-events:none; display:none; }
+.tube-grid-fade.show { display:block; }
+.show-more-btn { display:flex; align-items:center; gap:0.4rem; margin:1rem auto 0; background:#fff; border:1px solid #d8d0c0; color:#2a2820; font-family:Arial,sans-serif; font-size:13px; font-weight:600; padding:0.55rem 1.25rem; cursor:pointer; letter-spacing:0.02em; }
+.show-more-btn:hover { background:#f7f4ec; }
+.range-switch { margin-top:2.5rem; background:#2a2820; color:#e8dfc8; padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-family:Arial,sans-serif; }
+.range-switch strong { font-family:Georgia,serif; font-size:17px; font-weight:400; color:#fff; }
+.range-switch p { font-size:13px; color:#c8bfa8; margin:0.3rem 0 0; max-width:560px; line-height:1.55; }
+.series-table td { background:#fff !important; border-bottom:none; }
+.series-table .sub-row td { padding-top:0; padding-bottom:0.7rem; font-size:12px; color:#5a5248; line-height:1.55; border-bottom:1px solid #e8e2d4; }
+.series-table .sub-row span { color:#9a9080; font-weight:600; }
+.series-table tr:last-child td { border-bottom:none; }
+.range-tabs { display:flex; gap:0.5rem; flex-wrap:wrap; border-bottom:2px solid #d8d0c0; margin-bottom:1.75rem; }
+.range-tab { font-family:Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:0.02em; padding:0.75rem 1.4rem; background:#7a6a50; color:#fff; border:1px solid #7a6a50; border-bottom:none; cursor:pointer; margin-bottom:-2px; }
+.range-tab:hover { color:#fff; background:#5e5140; border-color:#5e5140; }
+.range-tab.active { background:#2a2820; color:#fff; border-color:#2a2820; }
+.panel-intro h2 { font-family:Georgia,serif; color:#2a2820; margin:0 0 0.4rem; }
+.panel-intro p { font-size:14px; color:#5a5248; font-family:Arial,sans-serif; line-height:1.6; margin:0 0 1.5rem; max-width:720px; }
+.label-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.order-open-btn { border:none; cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem; }
+.order-cta { background:#f0ebe0; border:1px solid #d8d0c0; padding:1rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+.order-cta p { font-size:14px; color:#5a5248; font-family:Arial,sans-serif; margin:0; }
+.form-scope-note { display:flex; gap:0.6rem; align-items:flex-start; background:#fbf3df; border:1px solid #e4c98a; border-left:4px solid #c4a96b; padding:0.8rem 1rem; font-family:Arial,sans-serif; font-size:13px; color:#5a4a28; line-height:1.55; margin-bottom:1rem; }
+.form-scope-note i { font-size:18px; color:#a8893f; flex-shrink:0; margin-top:1px; }
+.studio-howto { background:#fbf3df; border:1px solid #e4c98a; border-left:4px solid #c4a96b; padding:0.9rem 1.1rem; font-family:Arial,sans-serif; margin-bottom:1.75rem; max-width:820px; }
+.studio-howto strong { font-size:14px; color:#2a2820; display:flex; align-items:center; gap:0.4rem; }
+.studio-howto p { font-size:13px; color:#5a4a28; line-height:1.6; margin:0.4rem 0 0; }
+@media (max-width:480px) { .range-tab { flex:1; padding:0.7rem 0.6rem; font-size:13px; text-align:center; } }
 </style>
 <link rel="preload" href="img/hero.webp" as="image" type="image/webp">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -56,21 +89,46 @@ active: oilpaints
 <div class="cranfield-logo-box" style="width:auto; min-width:124px; height:146px; background:#f7f4ec; border:none; display:flex; align-items:center; justify-content:center; flex-shrink:0; padding:0.65rem; border-radius:4px;"><img src="img/cranfield-logo-strap.png" alt="Cranfield &mdash; Colour like no other" width="2217" height="1137" style="max-height:100%; max-width:100%; width:auto; height:auto; display:block;"></div>
 <div>
 <div class="cranfield-badge">Authorized distributor</div>
-<h2>Artists&rsquo; Oil Colours</h2>
-<p>Made by professionals for professionals. Formulated with the highest-grade pigments and cold-pressed linseed oil &mdash; exceptional permanence, buttery consistency, and true colour from tube to canvas. 44 colours across 5 series.</p>
+<h2>Cranfield Oil Colours</h2>
+<p>Made in Wales by Cranfield Colours. We carry two ranges: <strong>Artists&rsquo; Oils</strong>, the professional range you can order online below, and <strong>Studio Oils</strong>, an affordable range for students and everyday studio work.</p>
 </div>
 </div>
 
 <div class="section">
 
-<div class="section-label">40 mL Tubes</div>
-<div id="tube-grid" class="tube-grid">
-<!-- Tube cards injected by script below -->
+<div class="range-tabs" role="tablist" aria-label="Cranfield ranges">
+<button type="button" role="tab" id="tab-artists" class="range-tab active" aria-selected="true" aria-controls="panel-artists" onclick="showRange('artists')">Artists&rsquo; Oils</button>
+<button type="button" role="tab" id="tab-studio" class="range-tab" aria-selected="false" aria-controls="panel-studio" onclick="showRange('studio')">View Studio Oils</button>
 </div>
 
-<div id="order-form-section" style="max-width:640px; margin-top:2.5rem;">
+<div id="panel-artists" class="range-panel" role="tabpanel" aria-labelledby="tab-artists">
+
+<div class="panel-intro">
+<h2>Cranfield Artists&rsquo; Oil Colours</h2>
+<p>Made by professionals for professionals. Formulated with the highest-grade pigments and cold-pressed linseed oil &mdash; exceptional permanence, buttery consistency, and true colour from tube to canvas. 44 colours across 5 series.</p>
+</div>
+
+<div class="label-row">
+<div class="section-label" style="margin:0;">40 mL Tubes</div>
+<button type="button" class="btn-primary order-open-btn" onclick="openOrderForm()"><i class="ti ti-shopping-cart" aria-hidden="true"></i> Order Artists&rsquo; Oils</button>
+</div>
+<div class="tube-grid-wrap">
+<div id="tube-grid" class="tube-grid collapsed">
+<!-- Tube cards injected by script below -->
+</div>
+<div id="fade-tube-grid" class="tube-grid-fade show"></div>
+</div>
+<button type="button" class="show-more-btn" id="toggle-tube-grid" onclick="toggleGrid('tube-grid')">View more Artists&rsquo; Oils colours &#9662;</button>
+
+<div class="order-cta">
+<p><strong>Ready to order Artists&rsquo; Oils?</strong> Choose your colours and quantities on our order form.</p>
+<button type="button" class="btn-primary order-open-btn" id="order-toggle-btn" onclick="toggleOrderForm()" aria-expanded="false" aria-controls="order-form-section"><i class="ti ti-shopping-cart" aria-hidden="true"></i> Order Artists&rsquo; Oils</button>
+</div>
+
+<div id="order-form-section" style="max-width:640px; margin-top:2rem; display:none; scroll-margin-top:90px;">
 <img src="img/cranfield-logo-strap.png" alt="Cranfield &mdash; Colour like no other" width="2217" height="1137" style="max-width:220px; width:100%; height:auto; display:block; margin-bottom:1.25rem;">
-<h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.5rem;">Order 40 mL Tubes</h3>
+<h3 style="font-family:Georgia,serif; color:#2a2820; margin-bottom:0.75rem;">Artists&rsquo; Oils Order Form &mdash; 40 mL Tubes</h3>
+<div class="form-scope-note"><i class="ti ti-info-circle" aria-hidden="true"></i> <span>This form is for <strong>Cranfield Artists&rsquo; Oils in 40 mL tubes only</strong>. To order Studio Oils or 225 mL Artists&rsquo; Oils, email <a href="mailto:canwestart@shaw.ca">canwestart@shaw.ca</a>, phone, or text 604-793-5026.</span></div>
 <p style="font-size:13px; color:#5a5248; font-family:Arial,sans-serif; margin-bottom:1.5rem;">Set quantities for the colours you&rsquo;d like below, then fill in your details. We&rsquo;ll follow up to confirm and arrange payment.</p>
 
 <form id="cranfield-order-form" action="https://api.web3forms.com/submit" method="POST">
@@ -290,12 +348,181 @@ active: oilpaints
 <a href="contact.html" class="btn-sm"><i class="ti ti-mail" aria-hidden="true"></i> Contact us</a>
 </div>
 
-<div class="wholesale-cta" style="margin-top:2.5rem;">
+<div class="range-switch">
 <div>
-<strong>Limited Studio Oils available</strong>
-<p>We have a limited selection of Cranfield Studio Oils. Contact us for further information.</p>
+<strong>Also from Cranfield: Studio Oils</strong>
+<p>An affordable range for students and everyday studio work &mdash; 47 colours, 60 mL tubes from $13.95, plus 225 mL tubes, tins and a starter set.</p>
 </div>
+<button type="button" class="btn-primary order-open-btn" onclick="showRange('studio', true)">View Studio Oils &rarr;</button>
 </div>
+
+</div><!-- /panel-artists -->
+
+<div id="panel-studio" class="range-panel" role="tabpanel" aria-labelledby="tab-studio" hidden>
+
+<div id="studio-oils" class="panel-intro">
+<h2>Cranfield Studio Oil Colours</h2>
+<p>Paints made from the finest pigments for durability and performance. Excellent quality at an accessible price &mdash; ideal for students, emerging artists, and high-volume studio work. 47 colours across Series 1&ndash;4.</p>
+</div>
+
+<div class="studio-howto">
+<strong><i class="ti ti-mail" aria-hidden="true"></i> How to order Studio Oils</strong>
+<p>Studio Oils aren&rsquo;t on the online order form. Find the colours you want and their series below, check the price list, then email <a href="mailto:canwestart@shaw.ca">canwestart@shaw.ca</a>, phone, or text <a href="tel:16047935026">604-793-5026</a> with each colour, size (60 mL, 225 mL, or tin) and quantity. We&rsquo;ll confirm availability, taxes and shipping, and arrange payment with you.</p>
+</div>
+
+<div class="section-label" style="margin-top:1.5rem;">Studio Oils Colour Chart</div>
+
+<h3 class="studio-cat">Whites</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#eae8da;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Titanium White</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PW6, PW4</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#eeebde;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Quick Drying Titanium White</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PW6, PW4</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#e9e7da;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Zinc White</h4><div class="colour-meta">Semi Opaque &middot; ASTM I<br>PW4</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#eeeadc;border-bottom:1px solid #e0d8c8;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Mixing White</h4><div class="colour-meta">Semi Opaque &middot; ASTM I<br>PW6, PW4</div></div></div>
+</div>
+
+<hr class="divider">
+<h3 class="studio-cat">Yellows</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#f1de33;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Primrose Yellow</h4><div class="colour-meta">Semi Opaque &middot; ASTM I<br>PY53</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f2d41b;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Lemon Yellow</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II<br>PY3</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f1c71c;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Cadmium Yellow Pale Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PY35</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#ecb619;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow</h4><div class="colour-meta">Semi Opaque &middot; ASTM II<br>PY73</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f7a819;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Cadmium Yellow Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PY35</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f37a1b;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow Deep</h4><div class="colour-meta">Semi Opaque &middot; ASTM II<br>PY73, PO5</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#f37320;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Cadmium Yellow Deep Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PY35</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#864f1e;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Indian Yellow Hue</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II<br>PY73, PBr7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#785026;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Yellow Ochre</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PY42</div></div></div>
+</div>
+
+<hr class="divider">
+<h3 class="studio-cat">Oranges &amp; Reds</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#ee4621;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Orange</h4><div class="colour-meta">Semi Opaque &middot; ASTM II<br>PY73, PR4</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#ed3520;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Scarlet</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II<br>PO5</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#d12d23;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Red</h4><div class="colour-meta">Semi Opaque &middot; ASTM II<br>PR188, PR4</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#d92624;"></div><div class="colour-info"><span class="series-badge">Series 4</span><h4>Cadmium Red Genuine</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PR108</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#ac2122;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Red Deep</h4><div class="colour-meta">Semi Opaque &middot; ASTM II<br>PR3</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#7e1425;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Crimson</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II<br>PR188, PR4, PR122</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#671024;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Alizarin Crimson</h4><div class="colour-meta">Transparent &middot; ASTM II<br>PR83</div></div></div>
+</div>
+
+<hr class="divider">
+<h3 class="studio-cat">Pinks &amp; Violets</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#8d1823;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Rose Madder Quinacridone</h4><div class="colour-meta">Semi Transparent &middot; ASTM I<br>PV19</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#710e3f;"></div><div class="colour-info"><span class="series-badge">Series 2</span><h4>Magenta</h4><div class="colour-meta">Transparent &middot; ASTM I<br>PR122</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#262150;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Violet</h4><div class="colour-meta">Semi Transparent &middot; ASTM I&ndash;II<br>PV23</div></div></div>
+</div>
+
+<hr class="divider">
+<h3 class="studio-cat">Blues</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#212b5a;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>French Ultramarine Blue</h4><div class="colour-meta">Transparent &middot; ASTM I<br>PB29</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#273a7a;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Cobalt Blue Hue</h4><div class="colour-meta">Semi Opaque &middot; ASTM I<br>PB15:3, PB29, PW6</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#20325d;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Phthalo Blue Red Shade</h4><div class="colour-meta">Transparent &middot; ASTM I<br>PB15:1</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#151f39;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Prussian Blue</h4><div class="colour-meta">Transparent &middot; ASTM I&ndash;II<br>PB27</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#1f3762;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Cerulean Blue Hue</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II<br>PY3, PB29, PB15:3, PW6</div></div></div>
+</div>
+
+<hr class="divider">
+<h3 class="studio-cat">Greens</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#0e2721;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Phthalo Green</h4><div class="colour-meta">Transparent &middot; ASTM I<br>PG7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#10312a;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Viridian Green Hue</h4><div class="colour-meta">Transparent &middot; ASTM I&ndash;II<br>PG7, PY73, PB15:3</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#1e5f35;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Emerald Green Hue</h4><div class="colour-meta">Opaque &middot; ASTM I&ndash;II<br>PY3, PY73, PB15:3, PW6, PW4</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#295632;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Green Light</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PY3, PY42, PG7, PW6</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#254028;"></div><div class="colour-info"><span class="series-badge">Series 3</span><h4>Opaque Oxide of Chromium</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PG17</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#293f21;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Sap Green</h4><div class="colour-meta">Semi Opaque &middot; ASTM I&ndash;II<br>PY3, PG7, PBr7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#2f5336;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Terre Verte</h4><div class="colour-meta">Transparent &middot; ASTM I<br>PG23</div></div></div>
+</div>
+
+<hr class="divider">
+<h3 class="studio-cat">Earth tones</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#2e2116;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Sienna</h4><div class="colour-meta">Semi Transparent &middot; ASTM I<br>PBr7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#341314;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Sienna</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PBr7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#1a1612;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Raw Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I<br>PBr7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#141011;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Burnt Umber</h4><div class="colour-meta">Semi Transparent &middot; ASTM I<br>PBr7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#130c0d;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Van Dyck Brown</h4><div class="colour-meta">Semi Transparent &middot; ASTM I<br>PBr7, PBk9</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#280e0f;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Mars Violet</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PR101</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#441419;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Indian Red</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PR101</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#78322c;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Light Red</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PR101, PY42</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#d57042;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Flesh Tint</h4><div class="colour-meta">Opaque &middot; ASTM I<br>PY42, PR101, PW6, PW4</div></div></div>
+</div>
+
+<hr class="divider">
+<h3 class="studio-cat">Blacks &amp; Greys</h3>
+<div class="colour-grid">
+<div class="colour-card"><div class="colour-swatch" style="background:#1a1a1d;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Payne&rsquo;s Grey</h4><div class="colour-meta">Semi Transparent &middot; ASTM I<br>PBk9, PB29, PBr7</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#101112;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Ivory Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I<br>PBk9</div></div></div>
+<div class="colour-card"><div class="colour-swatch" style="background:#131111;"></div><div class="colour-info"><span class="series-badge">Series 1</span><h4>Mars Black</h4><div class="colour-meta">Semi Opaque &middot; ASTM I<br>PBk11</div></div></div>
+</div>
+
+<p class="pricing-note">Swatches are sampled from Cranfield&rsquo;s official Studio Oils chart and show each colour straight from the tube; on-screen colour will vary by display.</p>
+
+<hr class="divider" style="margin-top:2.5rem;">
+
+<div class="section-label">Studio Oils Price List &mdash; as of November 2026</div>
+
+<div class="pricing-table-wrap">
+<table class="pricing-table series-table">
+<thead>
+<tr><th>Series</th><th class="price-cell">60 mL Tube</th><th class="price-cell">225 mL Tube</th></tr>
+</thead>
+<tbody>
+<tr><td style="white-space:nowrap;"><strong>Series 1</strong></td><td class="price-cell">$13.95</td><td class="price-cell">$39.95</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> All Series 1 colours</td></tr>
+<tr><td style="white-space:nowrap;"><strong>Series 2</strong></td><td class="price-cell">$17.95</td><td class="price-cell">$45.95</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> Alizarin Crimson, Red, Magenta, Indian Yellow Hue</td></tr>
+<tr><td style="white-space:nowrap;"><strong>Series 3</strong></td><td class="price-cell">$23.55</td><td class="price-cell">$63.25</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> Opaque Oxide of Chromium, Rose Madder Quinacridone, Crimson, Cadmium Yellow Genuine, Cadmium Yellow Deep Genuine, Cadmium Yellow Pale Genuine, Primrose Yellow</td></tr>
+<tr><td style="white-space:nowrap;"><strong>Series 4</strong></td><td class="price-cell">$31.85</td><td class="price-cell">$79.50</td></tr>
+<tr class="sub-row"><td colspan="3"><span>225 mL colours:</span> Cadmium Red Genuine</td></tr>
+</tbody>
+</table>
+</div>
+<p class="pricing-note">60 mL tubes are available in every Studio Oils colour. Find a colour&rsquo;s series on its swatch above.</p>
+
+<div class="pricing-table-wrap" style="margin-top:1.5rem;">
+<table class="pricing-table">
+<thead>
+<tr><th>Tins</th><th>Colours available</th><th class="price-cell">Price</th></tr>
+</thead>
+<tbody>
+<tr><td style="white-space:nowrap;">1 L &middot; Series 1</td><td>Ivory Black, Prussian Blue, French Ultramarine Blue, Phthalo Blue Red Shade, Cerulean Blue Hue, Cobalt Blue Hue, Raw Umber, Burnt Umber, Burnt Sienna, Raw Sienna, Viridian Green Hue, Orange, Red Deep, Violet, Titanium White, Zinc White, Quick Drying Titanium White, Yellow Ochre, Lemon Yellow, Yellow</td><td class="price-cell">$169.95</td></tr>
+<tr><td style="white-space:nowrap;">1 L &middot; Series 2</td><td>Alizarin Crimson, Red</td><td class="price-cell">$192.88</td></tr>
+<tr><td style="white-space:nowrap;">2.5 L &middot; Series 1</td><td>Ivory Black, French Ultramarine Blue, Burnt Umber, Red Deep, Titanium White, Yellow Ochre, Lemon Yellow, Yellow</td><td class="price-cell">$399.00</td></tr>
+<tr><td style="white-space:nowrap;">2.5 L &middot; Series 2</td><td>Red</td><td class="price-cell">$466.92</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pricing-table-wrap" style="margin-top:1.5rem;">
+<table class="pricing-table">
+<thead>
+<tr><th>Set</th><th>Includes</th><th class="price-cell">Price</th></tr>
+</thead>
+<tbody>
+<tr><td style="white-space:nowrap;">6 &times; 40 mL Set</td><td>Titanium White, Red, Lemon Yellow, French Ultramarine, Yellow Ochre, Burnt Umber</td><td class="price-cell">$89.95</td></tr>
+</tbody>
+</table>
+</div>
+<p class="pricing-note">Prices are in Canadian dollars and do not include taxes or shipping.</p>
+
+<div class="contact-order-bar">
+<p><strong>To order Studio Oils</strong> &mdash; email <a href="mailto:canwestart@shaw.ca">canwestart@shaw.ca</a>, phone, or text 604-793-5026.</p>
+<a href="contact.html" class="btn-sm"><i class="ti ti-mail" aria-hidden="true"></i> Contact us</a>
+</div>
+
+<div class="range-switch">
+<div>
+<strong>Looking for professional-grade colours?</strong>
+<p>Cranfield Artists&rsquo; Oils &mdash; 44 colours in 40 mL tubes, available to order online.</p>
+</div>
+<button type="button" class="btn-primary order-open-btn" onclick="showRange('artists', true)">&larr; View Artists&rsquo; Oils</button>
+</div>
+
+</div><!-- /panel-studio -->
 
 </div>
 
@@ -484,6 +711,50 @@ function submitOrderForm() {
       alert('Something went wrong sending your order. Please try again, or call/text 604-793-5026.');
     });
 }
+
+function toggleGrid(gridId) {
+  const grid = document.getElementById(gridId);
+  const fade = document.getElementById('fade-' + gridId);
+  const btn = document.getElementById('toggle-' + gridId);
+  if (grid.classList.contains('collapsed')) {
+    grid.classList.remove('collapsed');
+    fade.classList.remove('show');
+    btn.innerHTML = 'Show fewer colours &#9652;';
+  } else {
+    grid.classList.add('collapsed');
+    fade.classList.add('show');
+    btn.innerHTML = 'View more Artists&rsquo; Oils colours &#9662;';
+    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function showRange(which, scroll) {
+  const studio = which === 'studio';
+  document.getElementById('panel-artists').hidden = studio;
+  document.getElementById('panel-studio').hidden = !studio;
+  document.getElementById('tab-artists').classList.toggle('active', !studio);
+  document.getElementById('tab-studio').classList.toggle('active', studio);
+  document.getElementById('tab-artists').setAttribute('aria-selected', String(!studio));
+  document.getElementById('tab-studio').setAttribute('aria-selected', String(studio));
+  if (scroll) document.querySelector('.range-tabs').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function setOrderForm(open) {
+  const sec = document.getElementById('order-form-section');
+  const btn = document.getElementById('order-toggle-btn');
+  sec.style.display = open ? 'block' : 'none';
+  btn.setAttribute('aria-expanded', String(open));
+  btn.innerHTML = open
+    ? '<i class="ti ti-x" aria-hidden="true"></i> Hide order form'
+    : '<i class="ti ti-shopping-cart" aria-hidden="true"></i> Order Artists&rsquo; Oils';
+  if (open) sec.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function openOrderForm() { showRange('artists'); setOrderForm(true); }
+function toggleOrderForm() { setOrderForm(document.getElementById('order-form-section').style.display !== 'block'); }
+(function initRange() {
+  const params = new URLSearchParams(location.search);
+  if (params.get('range') === 'studio' || location.hash === '#studio-oils') showRange('studio');
+  if (params.get('order') === '1' || location.hash === '#order') openOrderForm();
+})();
 
 function toggleSwatchChart() {
   const panel = document.getElementById('swatch-chart-panel');
