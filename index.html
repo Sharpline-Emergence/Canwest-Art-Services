@@ -12,6 +12,16 @@ active: home
   <style>
     .card-links-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .card-links-row .btn-sm { flex: 1 1 auto; text-align: center; white-space: nowrap; }
+    /* ---- Google reviews ---- */
+    .reviews { border-top: 1px solid #d8d0c0; }
+    .reviews-summary { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem 0.9rem; margin-bottom: 1.5rem; font-family: Arial, sans-serif; }
+    .reviews-score { font-family: Georgia, serif; font-size: 34px; line-height: 1; color: #2a2820; }
+    .stars { color: #c4a96b; font-size: 20px; letter-spacing: 0.08em; line-height: 1; }
+    .reviews-count { color: #5a5248; font-size: 14px; }
+    .review-card { background: #fff; border: 0.5px solid #d8d0c0; border-left: 3px solid #c4a96b; padding: 1.5rem 1.75rem; max-width: 760px; }
+    .review-card blockquote { font-size: 17px; font-style: italic; line-height: 1.65; color: #2a2820; margin: 0.6rem 0 0.9rem; }
+    .review-card .review-source { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 0.04em; color: #7a7266; }
+    .reviews-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
   </style>
   <!-- Performance optimisations -->
   <link rel="preload" href="img/hero.webp" as="image" type="image/webp">
@@ -61,6 +71,24 @@ active: home
           <a href="winsor-newton.html" class="btn-sm">Winsor &amp; Newton</a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="section reviews">
+    <div class="section-label">What clients say</div>
+    <h2>Google reviews</h2>
+    <div class="reviews-summary">
+      <span class="reviews-score">5.0</span>
+      <span class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="reviews-count">Based on 3 Google reviews</span>
+    </div>
+    <div class="review-card">
+      <span class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <blockquote>&ldquo;We have several water color paintings from this incredible artist. No one else&rsquo;s prairie skies can even begin to compare to Errol&rsquo;s. Errol has also done framing work for us. We cannot recommend him enough!&rdquo;</blockquote>
+      <div class="review-source">&mdash; Google review</div>
+    </div>
+    <div class="reviews-actions">
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJL_QaOsE4hFQR_-Jx-lqDEH8" class="btn-sm" target="_blank" rel="noopener">Read all reviews on Google</a>
     </div>
   </div>
 
