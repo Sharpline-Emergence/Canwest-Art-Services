@@ -443,7 +443,7 @@ active: products
       if (hasDetails || p.sold) {
         let rows = '';
         if (p.medium) rows += '<tr><td>Medium</td><td>' + p.medium + '</td></tr>';
-        if (p.canvas_size) rows += '<tr><td>Canvas size</td><td>' + p.canvas_size + '</td></tr>';
+        if (p.canvas_size) rows += '<tr><td>' + (section === 'watercolours' ? 'Size' : 'Canvas size') + '</td><td>' + p.canvas_size + '</td></tr>';
         if (p.framed_size) rows += '<tr><td>Framed size</td><td>' + p.framed_size + '</td></tr>';
         if (p.sold) {
           rows += '<tr class="price-row"><td>Status</td><td>Sold</td></tr>';
