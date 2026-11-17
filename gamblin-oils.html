@@ -8,7 +8,7 @@ active: oilpaints
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://canwestart.ca/gamblin-oils.html">
 <title>Gamblin Artist's Oil Colours | Canwest Art Services</title>
-<meta name="description" content="Gamblin Artist's Oil Colours — 37 mL and 150 mL tubes, 110 colours across 6 series. Order online from Canwest Art Services.">
+<meta name="description" content="Gamblin Artist's Oil Colours — 37 mL and 150 mL tubes, 121 colours across 6 series. Order online from Canwest Art Services.">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"></noscript>
@@ -37,6 +37,7 @@ active: oilpaints
 .tube-info h4 { font-size:14px; font-weight:400; color:#2a2820; margin:0; font-family:Georgia,serif; line-height:1.3; }
 .tube-meta { font-size:11px; color:#9a9080; font-family:Arial,sans-serif; line-height:1.5; }
 .series-badge { display:inline-block; background:#f0ebe0; color:#7a6a50; font-size:10px; padding:0.1rem 0.4rem; font-family:Arial,sans-serif; letter-spacing:0.04em; width:fit-content; }
+.new-badge { display:inline-block; background:#2a2820; color:#e8dfc8; font-size:10px; padding:0.1rem 0.4rem; font-family:Arial,sans-serif; letter-spacing:0.06em; text-transform:uppercase; margin-left:0.3rem; }
 .tube-price { font-size:15px; color:#2a2820; font-family:Arial,sans-serif; font-weight:700; }
 .lightbox-info .tube-price { font-size:17px; margin:0.15rem 0 0.1rem; }
 
@@ -54,7 +55,7 @@ active: oilpaints
 <div class="cranfield-banner">
 <div>
 <h2>Gamblin Artist&rsquo;s Oil Colours</h2>
-<p>Handmade in Portland, Oregon since 1980. Rich, buttery colour with consistent quality from tube to tube &mdash; a favourite among working artists. 110 colours across 6 series.</p>
+<p>Handmade in Portland, Oregon since 1980. Rich, buttery colour with consistent quality from tube to tube &mdash; a favourite among working artists. 121 colours across 6 series.</p>
 </div>
 </div>
 
@@ -294,7 +295,19 @@ const GAMBLIN_37 = [
   {cag:"CAG 96-37", name:"Titanium Buff", code:"1815", series:"Series 1", price:16.99, img:"img/gamblin/37ml/cag96-37ml.jpg"},
   {cag:"CAG 97-37", name:"Titanium White", code:"1810", series:"Series 1", price:16.99, img:"img/gamblin/37ml/cag97-37ml.jpg"},
   {cag:"CAG 98-37", name:"Titanium-Zinc White", code:"1820", series:"Series 1", price:16.99, img:"img/gamblin/37ml/cag98-37ml.jpg"},
-  {cag:"CAG 99-37", name:"Transparent Earth Orange", code:"1681", series:"Series 3", price:29.99, img:"img/gamblin/37ml/cag99-37ml.jpg"}
+  {cag:"CAG 99-37", name:"Transparent Earth Orange", code:"1681", series:"Series 3", price:29.99, img:"img/gamblin/37ml/cag99-37ml.jpg"},
+  // New colours, Nov 2026 launch (Treasure Mart 20261110-GAM-NOV) — series inferred from supplier cost
+  {cag:"CAG 111-37", name:"Alpine Violet", code:"1028", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag111-37ml.jpg", isNew:true},
+  {cag:"CAG 112-37", name:"Deep Violet", code:"1257", series:"Series 3", price:29.99, img:"img/gamblin/37ml/cag112-37ml.jpg", isNew:true},
+  {cag:"CAG 113-37", name:"Desert Violet", code:"1259", series:"Series 3", price:29.99, img:"img/gamblin/37ml/cag113-37ml.jpg", isNew:true},
+  {cag:"CAG 114-37", name:"Dirt Road Red", code:"1263", series:"Series 3", price:29.99, img:"img/gamblin/37ml/cag114-37ml.jpg", isNew:true},
+  {cag:"CAG 115-37", name:"Fuchsia", code:"1278", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag115-37ml.jpg", isNew:true},
+  {cag:"CAG 116-37", name:"Grand Canyon Orange", code:"1285", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag116-37ml.jpg", isNew:true},
+  {cag:"CAG 117-37", name:"Jade Green", code:"1364", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag117-37ml.jpg", isNew:true},
+  {cag:"CAG 118-37", name:"Polar Blue Violet", code:"1525", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag118-37ml.jpg", isNew:true},
+  {cag:"CAG 119-37", name:"Sagebrush Green", code:"1640", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag119-37ml.jpg", isNew:true},
+  {cag:"CAG 120-37", name:"Santa Fe Orange", code:"1650", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag120-37ml.jpg", isNew:true},
+  {cag:"CAG 121-37", name:"Shadow Violet", code:"1667", series:"Series 2", price:21.99, img:"img/gamblin/37ml/cag121-37ml.jpg", isNew:true}
 ];
 
 // Gamblin Artist's Oil Colours — 150 mL — source: Gamblin 2026 price list (Canwest SKU assigned)
@@ -395,7 +408,19 @@ const GAMBLIN_150 = [
   {cag:"CAG 96-150", name:"Titanium Buff", code:"2815", series:"Series 1", price:44.99, img:"img/gamblin/150ml/cag96-150ml.jpg"},
   {cag:"CAG 97-150", name:"Titanium White", code:"2810", series:"Series 1", price:44.99, img:"img/gamblin/150ml/cag97-150ml.jpg"},
   {cag:"CAG 98-150", name:"Titanium-Zinc White", code:"2820", series:"Series 1", price:44.99, img:"img/gamblin/150ml/cag98-150ml.jpg"},
-  {cag:"CAG 99-150", name:"Transparent Earth Orange", code:"2681", series:"Series 3", price:70.99, img:"img/gamblin/150ml/cag99-150ml.jpg"}
+  {cag:"CAG 99-150", name:"Transparent Earth Orange", code:"2681", series:"Series 3", price:70.99, img:"img/gamblin/150ml/cag99-150ml.jpg"},
+  // New colours, Nov 2026 launch (Treasure Mart 20261110-GAM-NOV) — series inferred from supplier cost
+  {cag:"CAG 111-150", name:"Alpine Violet", code:"2028", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag111-150ml.jpg", isNew:true},
+  {cag:"CAG 112-150", name:"Deep Violet", code:"2257", series:"Series 3", price:70.99, img:"img/gamblin/150ml/cag112-150ml.jpg", isNew:true},
+  {cag:"CAG 113-150", name:"Desert Violet", code:"2259", series:"Series 3", price:70.99, img:"img/gamblin/150ml/cag113-150ml.jpg", isNew:true},
+  {cag:"CAG 114-150", name:"Dirt Road Red", code:"2263", series:"Series 3", price:70.99, img:"img/gamblin/150ml/cag114-150ml.jpg", isNew:true},
+  {cag:"CAG 115-150", name:"Fuchsia", code:"2278", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag115-150ml.jpg", isNew:true},
+  {cag:"CAG 116-150", name:"Grand Canyon Orange", code:"2285", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag116-150ml.jpg", isNew:true},
+  {cag:"CAG 117-150", name:"Jade Green", code:"2364", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag117-150ml.jpg", isNew:true},
+  {cag:"CAG 118-150", name:"Polar Blue Violet", code:"2525", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag118-150ml.jpg", isNew:true},
+  {cag:"CAG 119-150", name:"Sagebrush Green", code:"2640", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag119-150ml.jpg", isNew:true},
+  {cag:"CAG 120-150", name:"Santa Fe Orange", code:"2650", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag120-150ml.jpg", isNew:true},
+  {cag:"CAG 121-150", name:"Shadow Violet", code:"2667", series:"Series 2", price:54.49, img:"img/gamblin/150ml/cag121-150ml.jpg", isNew:true}
 ];
 
 function renderTubes(gridId, data, sizeLabel) {
@@ -406,7 +431,7 @@ function renderTubes(gridId, data, sizeLabel) {
     card.innerHTML = `
       <div class="tube-photo"><img src="${t.img}" alt="${t.name} ${sizeLabel} tube" loading="lazy" width="500" height="750"></div>
       <div class="tube-info">
-        <span class="series-badge">${t.series}</span>
+        <span><span class="series-badge">${t.series}</span>${t.isNew ? '<span class="new-badge">New</span>' : ''}</span>
         <h4>${t.name}</h4>
         <div class="tube-price">$${t.price.toFixed(2)}</div>
         <div class="tube-meta">${t.cag} &middot; ${sizeLabel} &middot; Gamblin ${t.code}</div>
@@ -437,6 +462,11 @@ document.getElementById('lightbox-overlay').addEventListener('click', function (
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeLightbox();
 });
+
+// Display alphabetically by colour name (CAG numbers unchanged)
+const byName = (a, b) => a.name.localeCompare(b.name);
+GAMBLIN_37.sort(byName);
+GAMBLIN_150.sort(byName);
 
 renderTubes('tube-grid-37', GAMBLIN_37, '37 mL');
 renderTubes('tube-grid-150', GAMBLIN_150, '150 mL');
@@ -474,7 +504,7 @@ GAMBLIN_ORDER_ITEMS.forEach((t, i) => {
   row.style.cssText = 'display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0.55rem 0.9rem; font-family:Arial,sans-serif;' + (i < GAMBLIN_ORDER_ITEMS.length - 1 ? ' border-bottom:0.5px solid #e8e2d4;' : '');
   row.innerHTML = `
     <div style="min-width:0;">
-      <div style="font-size:13px; color:#2a2820;">${t.name} &mdash; ${t.sizeLabel}</div>
+      <div style="font-size:13px; color:#2a2820;">${t.name} &mdash; ${t.sizeLabel}${t.isNew ? ' <span class="new-badge">New</span>' : ''}</div>
       <div style="font-size:11px; color:#9a9080;">${t.cag} &middot; ${money(t.price)}</div>
     </div>
     <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
